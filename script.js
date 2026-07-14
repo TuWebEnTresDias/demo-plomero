@@ -1,5 +1,5 @@
 /* ========================================
-   PLOMEROPRO — Landing Page Scripts
+   PLOMERO — Landing Page Scripts
    WOW Factor Interactions & Personalization
    ======================================== */
 
