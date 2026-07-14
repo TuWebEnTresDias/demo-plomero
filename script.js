@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update displayed phone numbers (text content)
             const displayPhone = cleanPhone.replace(/(\d{4})(\d{4})/, '$1-$2');
             document.querySelectorAll('.emergency-bar__phone, .contact__detail a[href^="tel:"]').forEach(el => {
-                el.textContent = `Llamar ahora: ${displayPhone}`;
+                el.textContent = `Llamar ahora: ${cleanPhone}`;
             });
 
             // Update the contact form WhatsApp number
