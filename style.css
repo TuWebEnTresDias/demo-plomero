@@ -1167,6 +1167,11 @@ strong {
 
 .gallery__comparison-before {
     clip-path: inset(0 50% 0 0);
+    z-index: 2;
+}
+
+.gallery__comparison-after {
+    z-index: 1;
 }
 
 .gallery__comparison-label {
