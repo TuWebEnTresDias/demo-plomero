@@ -46,10 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })(),
 
         init() {
-            // const name = this.params.get('n') + ' | Plomero';
-            const name = this.params.get('n');
-            const company = this.params.get('e') + ' | Plomeria';
+            
+            const rawName = this.params.get('n');
+            const rawCompany = this.params.get('e');
             const phone = this.params.get('t');
+
+            const company = rawCompany ? `${rawCompany} | Plomeria` : null;
+            const name = rawName ? `${rawName} | Plomero` : null;
 
             if (company) {
                 this.apply({ type: 'company', value: company });
