@@ -688,11 +688,13 @@ strong {
 
 .hero__title-line {
     display: block;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 
 .hero__title-line--accent {
     color: var(--accent);
-    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    /* font-size: clamp(2rem, 5.5vw, 4rem); */
 }
 
 .hero__subtitle {
@@ -889,7 +891,7 @@ strong {
 
 .differentials {
     padding: var(--section-pad) 0;
-    background-color: var(--primary-lighter);
+    background-color: var(--primary-light);
 }
 
 .differentials__grid {
@@ -945,7 +947,7 @@ strong {
 
 .trust-badges {
     padding: clamp(32px, 4vw, 60px) 0;
-    background-color: var(--primary-light);
+    background-color: var(--primary-lighter);
     border-top: 1px solid rgba(240, 240, 240, 0.05);
     border-bottom: 1px solid rgba(240, 240, 240, 0.05);
 }
