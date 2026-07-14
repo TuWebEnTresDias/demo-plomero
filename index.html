@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-dynamic="title">Servicio Profesional de Plomería</title>
-    <meta name="description" content="Servicio profesional de plomería. Emergencias 24/7, garantía en todos los trabajos,响应速度快. Contactanos ahora.">
+    <meta name="description" content="Servicio profesional de plomería. Emergencias 24/7, garantía en todos los trabajos, respuesta rápida. Contactanos ahora.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,6 +12,27 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
 </head>
 <body>
+
+    <!-- ===== LOADER ===== -->
+    <div class="loader" id="loader">
+        <div class="loader__inner">
+            <div class="loader__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+            </div>
+            <span class="loader__text" data-dynamic="logo">PlomeroPro</span>
+        </div>
+    </div>
+
+    <!-- ===== EMERGENCY BAR ===== -->
+    <div class="emergency-bar" id="emergencyBar">
+        <div class="emergency-bar__inner">
+            <span class="emergency-bar__pulse"></span>
+            <span class="emergency-bar__text">🚨 EMERGENCIAS 24/7</span>
+            <a href="tel:+5491158055802" class="emergency-bar__phone">Llamar ahora: 011 5805-5802</a>
+        </div>
+    </div>
 
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
@@ -28,6 +49,7 @@
                 <a href="#servicios" class="header__nav-link">Servicios</a>
                 <a href="#trabajos" class="header__nav-link">Trabajos</a>
                 <a href="#testimonios" class="header__nav-link">Reseñas</a>
+                <a href="#faq" class="header__nav-link">FAQ</a>
                 <a href="#contacto" class="header__nav-link header__nav-link--cta">Contactar</a>
             </nav>
             <button class="header__burger" id="burgerBtn" aria-label="Abrir menú">
@@ -44,6 +66,7 @@
             <a href="#servicios" class="mobile-menu__link">Servicios</a>
             <a href="#trabajos" class="mobile-menu__link">Trabajos</a>
             <a href="#testimonios" class="mobile-menu__link">Reseñas</a>
+            <a href="#faq" class="mobile-menu__link">FAQ</a>
             <a href="#contacto" class="mobile-menu__link mobile-menu__link--cta">Contactar</a>
         </nav>
     </div>
@@ -51,9 +74,9 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
         <div class="hero__bg">
-            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&h=1080&fit=crop&q=80"
-                 alt="Plomería profesional"
-                 class="hero__bg-img">
+            <video class="hero__video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&h=1080&fit=crop&q=80">
+                <source src="https://videos.pexels.com/video-files/5765827/5765827-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="hero__overlay"></div>
 
@@ -65,7 +88,7 @@
             </h1>
             <p class="hero__subtitle">Soluciones rápidas y garantizadas para tu hogar o negocio. Atendemos emergencias las 24 horas, los 7 días de la semana.</p>
             <div class="hero__cta">
-                <a href="tel:+5491158055802" class="btn btn--primary">
+                <a href="tel:+5491158055802" class="btn btn--primary btn--glow">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
@@ -85,6 +108,101 @@
             <div class="hero__rating">
                 <span class="hero__rating-stars">★★★★★</span>
                 <span class="hero__rating-text">4.9 · 200+ reseñas en Google</span>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero__scroll">
+            <div class="hero__scroll-mouse">
+                <div class="hero__scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COUNTERS ===== -->
+    <section class="counters" id="counters">
+        <div class="container">
+            <div class="counters__grid">
+                <div class="counter reveal">
+                    <span class="counter__number" data-target="500" data-suffix="+">0</span>
+                    <span class="counter__label">Trabajos realizados</span>
+                </div>
+                <div class="counter reveal">
+                    <span class="counter__number" data-target="15" data-suffix="+">0</span>
+                    <span class="counter__label">Años de experiencia</span>
+                </div>
+                <div class="counter reveal">
+                    <span class="counter__number" data-target="30" data-suffix=" min">0</span>
+                    <span class="counter__label">Tiempo de respuesta</span>
+                </div>
+                <div class="counter reveal">
+                    <span class="counter__number" data-target="4.9">0</span>
+                    <span class="counter__label">★ Calificación Google</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">¿Cómo funciona?</span>
+                <h2 class="section-title">Así de Fácil</h2>
+                <p class="section-subtitle">Tres pasos simples para solucionar tu problema de plomería.</p>
+            </div>
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step__number">1</div>
+                    <div class="step__icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 6H8a2 2 0 00-2 2v28a2 2 0 002 2h32a2 2 0 002-2V14L28 6z"/>
+                            <polyline points="22,6 22,14 36,14"/>
+                            <line x1="14" y1="24" x2="34" y2="24"/>
+                            <line x1="14" y1="32" x2="26" y2="32"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Contactanos</h3>
+                    <p class="step__text">Escribinos por WhatsApp o llamanos. Contanos tu problema y te damos una solución inmediata.</p>
+                </div>
+
+                <div class="step__connector reveal">
+                    <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="0" y1="10" x2="80" y2="10" stroke-dasharray="6 4"/>
+                        <polygon points="80,5 100,10 80,15" fill="currentColor" stroke="none"/>
+                    </svg>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step__number">2</div>
+                    <div class="step__icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="24" r="20"/>
+                            <path d="M24 12v12l8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Llegamos en 30 min</h3>
+                    <p class="step__text">Nuestro equipo se traslada a tu ubicación en menos de 30 minutos. Emergencias las 24 horas.</p>
+                </div>
+
+                <div class="step__connector reveal">
+                    <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="0" y1="10" x2="80" y2="10" stroke-dasharray="6 4"/>
+                        <polygon points="80,5 100,10 80,15" fill="currentColor" stroke="none"/>
+                    </svg>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step__number">3</div>
+                    <div class="step__icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M24 4C14 4 6 12 6 22c0 8 6 15 14 18v4h8v-4c8-3 14-10 14-18C42 12 34 4 24 4z"/>
+                            <path d="M18 22l4 4 8-8"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Solucionado</h3>
+                    <p class="step__text">Reparamos tu problema con garantía escrita. Si no quedás conforme, volvemos sin costo.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -133,6 +251,49 @@
         </div>
     </section>
 
+    <!-- ===== TRUST BADGES ===== -->
+    <section class="trust-badges" id="trust">
+        <div class="container">
+            <div class="trust-badges__grid reveal">
+                <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span class="trust-badge__text">Habilitado por ENARGAS</span>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                    </div>
+                    <span class="trust-badge__text">Matrícula Profesional</span>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <span class="trust-badge__text">Garantía 10 Años</span>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <span class="trust-badge__text">Aceptamos Tarjetas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== SERVICIOS ===== -->
     <section class="services" id="servicios">
         <div class="container">
@@ -155,27 +316,31 @@
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Reparación de cañerías rotas</h4>
-                            <span class="services__item-tag">Urgente</span>
+                            <span class="services__item-tag services__item-tag--urgent">Urgente</span>
                         </div>
                         <p class="services__item-desc">Detectamos y reparamos roturas en cañerías de agua fría, caliente y gas. Trabajo limpio y garantizado.</p>
+                        <!-- <span class="services__item-price">Desde $8.000</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Reparación de grifería</h4>
                         </div>
                         <p class="services__item-desc">Grifos que gotean, no cierran o pierden agua. Reparación o reemplazo de cualquier marca.</p>
+                        <!-- <span class="services__item-price">Desde $5.000</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Reparación de cisternas</h4>
                         </div>
                         <p class="services__item-desc">Cisternas que no llenan, se descargan solas o hacen ruido. Solución rápida y efectiva.</p>
+                        <!-- <span class="services__item-price">Desde $6.000</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Reparación de calentadores</h4>
                         </div>
                         <p class="services__item-desc">Calentadores a gas o eléctricos. No enciende, no calienta o pierde agua.</p>
+                        <!-- <span class="services__item-price">Desde $7.000</span> -->
                     </div>
                 </div>
 
@@ -186,18 +351,21 @@
                             <span class="services__item-tag">Más pedido</span>
                         </div>
                         <p class="services__item-desc">Pileta, bidet, bañera atascada. Destapamos con equipo profesional sin dañar las cañerías.</p>
+                        <!-- <span class="services__item-price">Desde $5.500</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Limpieza de cañerías</h4>
                         </div>
                         <p class="services__item-desc">Limpieza preventiva y correctiva de toda la red de desagües. Eliminamos sarro y residuos.</p>
+                        <!-- <span class="services__item-price">Desde $9.000</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Cámaras de inspectación</h4>
                         </div>
                         <p class="services__item-desc">Ingresamos una cámara para ver el estado interior de las cañerías. Diagnóstico preciso.</p>
+                        <!-- <span class="services__item-price">Desde $12.000</span> -->
                     </div>
                 </div>
 
@@ -208,18 +376,21 @@
                             <span class="services__item-tag">Habilitación</span>
                         </div>
                         <p class="services__item-desc">Instalaciones nuevas o modificación de redes existentes. Habilitación incluida.</p>
+                        <!-- <span class="services__item-price">Consultar</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Reparación de fugas de gas</h4>
                         </div>
                         <p class="services__item-desc">Detección y reparación de fugas. Trabajamos con certificación oficial.</p>
+                        <!-- <span class="services__item-price">Desde $10.000</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Habilitación de gas</h4>
                         </div>
                         <p class="services__item-desc">Trámites y documentación para habilitación ante la empresa distribuidora.</p>
+                        <!-- <span class="services__item-price">Desde $15.000</span> -->
                     </div>
                 </div>
 
@@ -229,24 +400,32 @@
                             <h4 class="services__item-name">Instalación de sanitary</h4>
                         </div>
                         <p class="services__item-desc">Instalación de inodoros, bidets, lavabos y bachas. Todas las marcas.</p>
+                        <!-- <span class="services__item-price">Desde $8.000</span> -->
                     </div>
-                    <div class="services__item reveal">
+                </div>
+
+                <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Instalación de llaves de paso</h4>
                         </div>
                         <p class="services__item-desc">Llaves de paso para agua caliente y fría. Corte seguro y limpio.</p>
+                        <!-- <span class="services__item-price">Desde $4.000</span> -->
                     </div>
                     <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Instalación de termotanques</h4>
                         </div>
                         <p class="services__item-desc">Instalación de termotanques a gas o eléctricos. Incluye habilitación.</p>
+                        <!-- <span class="services__item-price">Desde $12.000</span> -->
                     </div>
-                    <div class="services__item reveal">
+                </div>
+
+                <div class="services__item reveal">
                         <div class="services__item-header">
                             <h4 class="services__item-name">Instalación de lavarropas</h4>
                         </div>
                         <p class="services__item-desc">Conexión de lavarropas automático. Agua caliente, fría y desagüe.</p>
+                        <!-- <span class="services__item-price">Desde $5.000</span> -->
                     </div>
                 </div>
 
@@ -265,7 +444,7 @@
         </div>
     </section>
 
-    <!-- ===== TRABAJOS (ANTES/DESPUÉS) ===== -->
+    <!-- ===== TRABAJOS (GALLERY CAROUSEL) ===== -->
     <section class="gallery" id="trabajos">
         <div class="container">
             <div class="section-header reveal">
@@ -273,40 +452,168 @@
                 <h2 class="section-title">Antes y Después</h2>
                 <p class="section-subtitle">Así quedan nuestros trabajos. Cada imagen es un problema resuelto.</p>
             </div>
-            <div class="gallery__grid">
-                <div class="gallery__item gallery__item--wide reveal">
-                    <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&h=500&fit=crop&q=80"
-                         alt="Reparación de cañería" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <span>Reparación de cañería principal</span>
+
+            <div class="gallery__carousel reveal" id="galleryCarousel">
+                <div class="gallery__track">
+                    <div class="gallery__slide">
+                        <div class="gallery__comparison" data-comparison>
+                            <div class="gallery__comparison-before">
+                                <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&h=500&fit=crop&q=80" alt="Antes - Cañería dañada" loading="lazy">
+                                <span class="gallery__comparison-label">Antes</span>
+                            </div>
+                            <div class="gallery__comparison-after">
+                                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=500&fit=crop&q=80" alt="Después - Cañería reparada" loading="lazy">
+                                <span class="gallery__comparison-label">Después</span>
+                            </div>
+                            <div class="gallery__comparison-slider" data-slider>
+                                <div class="gallery__comparison-handle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15,18 9,12 15,6"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9,18 15,12 9,6"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="gallery__slide-caption">Reparación de cañería principal — Caballito</p>
+                    </div>
+
+                    <div class="gallery__slide">
+                        <div class="gallery__comparison" data-comparison>
+                            <div class="gallery__comparison-before">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=500&fit=crop&q=80" alt="Antes - Desagüe atascado" loading="lazy">
+                                <span class="gallery__comparison-label">Antes</span>
+                            </div>
+                            <div class="gallery__comparison-after">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop&q=80" alt="Después - Baño renovado" loading="lazy">
+                                <span class="gallery__comparison-label">Después</span>
+                            </div>
+                            <div class="gallery__comparison-slider" data-slider>
+                                <div class="gallery__comparison-handle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15,18 9,12 15,6"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9,18 15,12 9,6"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="gallery__slide-caption">Destape y renovación completa — Palermo</p>
+                    </div>
+
+                    <div class="gallery__slide">
+                        <div class="gallery__comparison" data-comparison>
+                            <div class="gallery__comparison-before">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop&q=80" alt="Antes - Red de gas" loading="lazy">
+                                <span class="gallery__comparison-label">Antes</span>
+                            </div>
+                            <div class="gallery__comparison-after">
+                                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=500&fit=crop&q=80" alt="Después - Red de gas instalada" loading="lazy">
+                                <span class="gallery__comparison-label">Después</span>
+                            </div>
+                            <div class="gallery__comparison-slider" data-slider>
+                                <div class="gallery__comparison-handle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15,18 9,12 15,6"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9,18 15,12 9,6"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="gallery__slide-caption">Instalación de red de gas — Belgrano</p>
                     </div>
                 </div>
-                <div class="gallery__item reveal">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=450&fit=crop&q=80"
-                         alt="Instalación de grifería" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <span>Grifería completa</span>
-                    </div>
+
+                <button class="gallery__nav gallery__nav--prev" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15,18 9,12 15,6"/>
+                    </svg>
+                </button>
+                <button class="gallery__nav gallery__nav--next" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9,18 15,12 9,6"/>
+                    </svg>
+                </button>
+
+                <div class="gallery__dots" id="galleryDots">
+                    <button class="gallery__dot active" data-index="0" aria-label="Slide 1"></button>
+                    <button class="gallery__dot" data-index="1" aria-label="Slide 2"></button>
+                    <button class="gallery__dot" data-index="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="gallery__item reveal">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=450&fit=crop&q=80"
-                         alt="Destape de desagüe" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <span>Destape de desagüe</span>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COVERAGE MAP ===== -->
+    <section class="coverage" id="cobertura">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">¿Dónde trabajamos?</span>
+                <h2 class="section-title">Zona de Cobertura</h2>
+                <p class="section-subtitle">Atendemos Capital Federal y Gran Buenos Aires.</p>
+            </div>
+            <div class="coverage__grid reveal">
+                <div class="coverage__map">
+                    <svg viewBox="0 0 600 400" class="coverage__svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Simplified Buenos Aires map -->
+                        <defs>
+                            <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.3"/>
+                                <stop offset="100%" style="stop-color:var(--accent);stop-opacity:0.1"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Water / Rio de la Plata -->
+                        <path d="M300 50 Q450 80 550 200 Q600 300 500 400 L600 400 L600 0 L300 0 Z" fill="rgba(43,122,120,0.08)" stroke="rgba(43,122,120,0.15)" stroke-width="1"/>
+                        <!-- CABA -->
+                        <path d="M180 80 Q200 60 250 70 Q280 75 300 100 Q310 140 290 180 Q260 200 220 190 Q180 175 170 140 Z" fill="url(#mapGrad)" stroke="var(--accent)" stroke-width="2" class="coverage__zone coverage__zone--active"/>
+                        <text x="230" y="135" fill="var(--text)" font-size="12" font-family="var(--font-body)" font-weight="600" text-anchor="middle">CABA</text>
+                        <!-- GBA Norte -->
+                        <path d="M120 40 Q160 20 200 30 Q220 50 200 70 Q170 80 140 70 Q110 55 120 40 Z" fill="url(#mapGrad)" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 2" class="coverage__zone"/>
+                        <text x="160" y="55" fill="var(--text-muted)" font-size="10" font-family="var(--font-body)" text-anchor="middle">Zona Norte</text>
+                        <!-- GBA Oeste -->
+                        <path d="M80 100 Q120 80 170 90 Q180 120 160 150 Q120 170 80 150 Q60 130 80 100 Z" fill="url(#mapGrad)" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 2" class="coverage__zone"/>
+                        <text x="120" y="130" fill="var(--text-muted)" font-size="10" font-family="var(--font-body)" text-anchor="middle">GBA Oeste</text>
+                        <!-- GBA Sur -->
+                        <path d="M200 200 Q250 190 280 210 Q290 250 270 280 Q230 300 190 280 Q170 250 200 200 Z" fill="url(#mapGrad)" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 2" class="coverage__zone"/>
+                        <text x="230" y="250" fill="var(--text-muted)" font-size="10" font-family="var(--font-body)" text-anchor="middle">Zona Sur</text>
+                        <!-- Pin marker -->
+                        <circle cx="235" cy="130" r="8" fill="var(--accent)" class="coverage__pin"/>
+                        <circle cx="235" cy="130" r="16" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.4" class="coverage__pin-ring"/>
+                        <circle cx="235" cy="130" r="24" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.2" class="coverage__pin-ring"/>
+                    </svg>
                 </div>
-                <div class="gallery__item reveal">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop&q=80"
-                         alt="Instalación sanitaria" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <span>Baño completo</span>
+                <div class="coverage__zones">
+                    <div class="coverage__zone-item">
+                        <span class="coverage__zone-dot"></span>
+                        <div>
+                            <h4>Capital Federal</h4>
+                            <p>Todos los barrios</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery__item gallery__item--wide reveal">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop&q=80"
-                         alt="Instalación de gas" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <span>Red de gas completa</span>
+                    <div class="coverage__zone-item">
+                        <span class="coverage__zone-dot"></span>
+                        <div>
+                            <h4>Zona Norte</h4>
+                            <p>San Isidro, Vicente López, Tigre</p>
+                        </div>
+                    </div>
+                    <div class="coverage__zone-item">
+                        <span class="coverage__zone-dot"></span>
+                        <div>
+                            <h4>GBA Oeste</h4>
+                            <p>Morón, Haedo, Ituzaingó</p>
+                        </div>
+                    </div>
+                    <div class="coverage__zone-item">
+                        <span class="coverage__zone-dot"></span>
+                        <div>
+                            <h4>Zona Sur</h4>
+                            <p>Lanús, Avellaneda, Quilmes</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -330,10 +637,10 @@
             <div class="testimonials__grid">
                 <div class="testimonial reveal">
                     <div class="testimonial__header">
-                        <div class="testimonial__avatar">MG</div>
+                        <img class="testimonial__avatar" src="https://i.pravatar.cc/80?img=32" alt="María G." loading="lazy">
                         <div>
                             <h4 class="testimonial__name">María G.</h4>
-                            <span class="testimonial__date">hace 1 semana</span>
+                            <span class="testimonial__location">📍 Caballito</span>
                         </div>
                     </div>
                     <div class="testimonial__stars">★★★★★</div>
@@ -341,10 +648,10 @@
                 </div>
                 <div class="testimonial reveal">
                     <div class="testimonial__header">
-                        <div class="testimonial__avatar">CL</div>
+                        <img class="testimonial__avatar" src="https://i.pravatar.cc/80?img=11" alt="Carlos L." loading="lazy">
                         <div>
                             <h4 class="testimonial__name">Carlos L.</h4>
-                            <span class="testimonial__date">hace 2 semanas</span>
+                            <span class="testimonial__location">📍 Belgrano</span>
                         </div>
                     </div>
                     <div class="testimonial__stars">★★★★★</div>
@@ -352,10 +659,10 @@
                 </div>
                 <div class="testimonial reveal">
                     <div class="testimonial__header">
-                        <div class="testimonial__avatar">AR</div>
+                        <img class="testimonial__avatar" src="https://i.pravatar.cc/80?img=5" alt="Ana R." loading="lazy">
                         <div>
                             <h4 class="testimonial__name">Ana R.</h4>
-                            <span class="testimonial__date">hace 1 mes</span>
+                            <span class="testimonial__location">📍 Palermo</span>
                         </div>
                     </div>
                     <div class="testimonial__stars">★★★★★</div>
@@ -363,14 +670,93 @@
                 </div>
                 <div class="testimonial reveal">
                     <div class="testimonial__header">
-                        <div class="testimonial__avatar">JM</div>
+                        <img class="testimonial__avatar" src="https://i.pravatar.cc/80?img=53" alt="Jorge M." loading="lazy">
                         <div>
                             <h4 class="testimonial__name">Jorge M.</h4>
-                            <span class="testimonial__date">hace 2 meses</span>
+                            <span class="testimonial__location">📍 San Isidro</span>
                         </div>
                     </div>
                     <div class="testimonial__stars">★★★★☆</div>
                     <p class="testimonial__text">"Tenía una filtración que no me la podía encontrar nadie. Ellos vinieron con la cámara, detectaron el problema y lo solucionaron el mismo día. Muy profesionales."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Preguntas frecuentes</span>
+                <h2 class="section-title">¿Tenés dudas?</h2>
+                <p class="section-subtitle">Resolvemos las preguntas más comunes de nuestros clientes.</p>
+            </div>
+            <div class="faq__list">
+                <div class="faq__item reveal">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>¿Cuánto cuesta una visita?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>La primera consulta telefónica es <strong>gratuita</strong>. El costo de la visita depende del tipo de trabajo. Todos los presupuestos se realizan antes de comenzar la obra, sin sorpresas. Contactanos y te damos un precio estimativo al instante.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>¿Atienden de noche y fines de semana?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p><strong>Sí, las 24 horas, los 7 días de la semana</strong>, incluyendo feriados. Entendemos que las emergencias no tienen horario. Llamanos cuando necesites y llegamos.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>¿Cuánto tardan en llegar?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>En emergencias, nuestro tiempo promedio de llegada es de <strong>30 minutos o menos</strong>. Para trabajos programados, coordinamos un día y horario que te quede bien.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>¿Dan factura?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p><strong>Sí, siempre</strong>. Somos un negocio registrado. Te damos factura A o B según necesites. También aceptamos pagos con tarjeta de crédito y débito.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>¿Qué cubre la garantía?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Todos nuestros trabajos tienen <strong>garantía escrita de hasta 10 años</strong>. Si el problema se repite, volvemos sin costo adicional y lo solucionamos. Tu tranquilidad es nuestra prioridad.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>¿Atienden emergencias de gas?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p><strong>Sí</strong>. Somos certificados por ENARGAS para trabajos de gas. Si sospechás de una fuga, llamanos inmediatamente. Atendemos emergencias de gas las 24 horas.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -428,10 +814,19 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="contactUrgency">¿Cuándo lo necesitás?</label>
+                            <select id="contactUrgency" name="urgency">
+                                <option value="urgente">🚨 Urgente (ahora)</option>
+                                <option value="hoy" selected>Hoy</option>
+                                <option value="esta-semana">Esta semana</option>
+                                <option value="cuando-pueda">Cuando puedan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="contactMessage">Mensaje <span class="form-optional">(opcional)</span></label>
                             <textarea id="contactMessage" name="message" rows="3" placeholder="Contanos brevemente tu problema"></textarea>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full">
+                        <button type="submit" class="btn btn--primary btn--full btn--ripple">
                             Enviar por WhatsApp
                         </button>
                     </form>
@@ -494,6 +889,60 @@
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
+
+    <!-- ===== MOBILE STICKY CTA ===== -->
+    <div class="mobile-cta" id="mobileCta">
+        <a href="tel:+5491158055802" class="mobile-cta__btn mobile-cta__btn--call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Llamar
+        </a>
+        <a href="https://wa.me/5491158055802?text=Hola%2C%20necesito%20un%20plomero"
+           class="mobile-cta__btn mobile-cta__btn--whatsapp"
+           target="_blank"
+           rel="noopener"
+           data-whatsapp>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            WhatsApp
+        </a>
+    </div>
+
+    <!-- ===== EXIT INTENT POPUP ===== -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="exit-popup__overlay"></div>
+        <div class="exit-popup__modal">
+            <button class="exit-popup__close" id="exitPopupClose" aria-label="Cerrar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="exit-popup__icon">🚨</div>
+            <h3 class="exit-popup__title">¿Tenés una emergencia?</h3>
+            <p class="exit-popup__text">No dejes para mañana lo que podés solucionar hoy. Llamanos ahora o escribinos por WhatsApp.</p>
+            <div class="exit-popup__actions">
+                <a href="tel:+5491158055802" class="btn btn--primary btn--glow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Llamar ahora
+                </a>
+                <a href="https://wa.me/5491158055802?text=Hola%2C%20tengo%20una%20emergencia%20de%20plomería"
+                   class="btn btn--whatsapp"
+                   target="_blank"
+                   rel="noopener"
+                   data-whatsapp>
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>
