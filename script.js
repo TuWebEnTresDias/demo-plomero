@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })(),
 
         init() {
-            const name = this.params.get('n');
-            const company = this.params.get('e');
+            const name = this.params.get('n') + ' | Plomero';
+            const company = this.params.get('e') + ' | Plomeria';
             const phone = this.params.get('t');
 
             if (company) {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     case 'logo':
                     case 'footer-name':
                         // el.textContent = value;
-                        el.textContent = `${value} | Plomero`;
+                        el.textContent = `${value}`;
                         break;
                     case 'title':
                         el.textContent = `${value} | Servicio de Plomería`;
