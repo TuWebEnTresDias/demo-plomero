@@ -27,7 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ── PERSONALIZATION ENGINE ──────── */
     const Personalization = {
-        params: new URLSearchParams(window.location.search),
+        // params: new URLSearchParams(window.location.search),
+
+        params: (() => {
+            
+            // First try current page URL
+            const local = new URLSearchParams(window.location.search);
+            if (local.toString()) return local;
+
+            // Fallback: check parent window (iframe scenario)
+            try {
+                if (window.parent && window.parent !== window) {
+                    return new URLSearchParams(window.parent.location.search);
+                }
+            } catch (e) { /* cross-origin, ignore */ }
+
+            return local;
+        })(),
 
         init() {
             const name = this.params.get('n');
