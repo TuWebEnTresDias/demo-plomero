@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-dynamic="title">Servicio Profesional de Plomería</title>
+    <meta name="description" content="Servicio profesional de plomería. Emergencias 24/7, garantía en todos los trabajos,响应速度快. Contactanos ahora.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="#hero" class="header__logo">
+                <span class="header__logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                </span>
+                <span class="header__logo-text" data-dynamic="logo">PlomeroPro</span>
+            </a>
+            <nav class="header__nav" id="mainNav">
+                <a href="#servicios" class="header__nav-link">Servicios</a>
+                <a href="#trabajos" class="header__nav-link">Trabajos</a>
+                <a href="#testimonios" class="header__nav-link">Reseñas</a>
+                <a href="#contacto" class="header__nav-link header__nav-link--cta">Contactar</a>
+            </nav>
+            <button class="header__burger" id="burgerBtn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="#servicios" class="mobile-menu__link">Servicios</a>
+            <a href="#trabajos" class="mobile-menu__link">Trabajos</a>
+            <a href="#testimonios" class="mobile-menu__link">Reseñas</a>
+            <a href="#contacto" class="mobile-menu__link mobile-menu__link--cta">Contactar</a>
+        </nav>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&h=1080&fit=crop&q=80"
+                 alt="Plomería profesional"
+                 class="hero__bg-img">
+        </div>
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+            <p class="hero__tagline">Emergencias 24/7 · Resposta inmediata</p>
+            <h1 class="hero__title">
+                <span class="hero__title-line" data-dynamic="name">Servicio de Plomería</span>
+                <span class="hero__title-line hero__title-line--accent">¿Se te rompió una cañería?</span>
+            </h1>
+            <p class="hero__subtitle">Soluciones rápidas y garantizadas para tu hogar o negocio. Atendemos emergencias las 24 horas, los 7 días de la semana.</p>
+            <div class="hero__cta">
+                <a href="tel:+5491158055802" class="btn btn--primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Llamar Ahora
+                </a>
+                <a href="https://wa.me/5491158055802?text=Hola%2C%20necesito%20un%20plomero"
+                   class="btn btn--outline"
+                   target="_blank"
+                   rel="noopener"
+                   data-whatsapp>
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+            <div class="hero__rating">
+                <span class="hero__rating-stars">★★★★★</span>
+                <span class="hero__rating-text">4.9 · 200+ reseñas en Google</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DIFERENCIALES ===== -->
+    <section class="differentials" id="diferenciales">
+        <div class="container">
+            <div class="differentials__grid">
+
+                <div class="differential reveal">
+                    <div class="differential__icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="24" r="20"/>
+                            <path d="M24 12v12l8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="differential__title">Emergencia 24/7</h3>
+                    <p class="differential__text">Roturas, filtraciones y emergencias las 24 horas. Llamanos y llegamos en menos de 30 minutos.</p>
+                </div>
+
+                <div class="differential reveal">
+                    <div class="differential__icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 8H8v12"/>
+                            <path d="M28 40h12V28"/>
+                            <path d="M40 8L28 20"/>
+                            <path d="M8 40l12-12"/>
+                        </svg>
+                    </div>
+                    <h3 class="differential__title">Garantía Total</h3>
+                    <p class="differential__text">Todos nuestros trabajos tienen garantía escrita. Si no quedás conforme, volvemos sin costo adicional.</p>
+                </div>
+
+                <div class="differential reveal">
+                    <div class="differential__icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M24 4C14 4 6 12 6 22c0 8 6 15 14 18v4h8v-4c8-3 14-10 14-18C42 12 34 4 24 4z"/>
+                            <path d="M18 22l4 4 8-8"/>
+                        </svg>
+                    </div>
+                    <h3 class="differential__title">Presupuesto Gratis</h3>
+                    <p class="differential__text">Sin compromiso. Te decimos el costo antes de empezar. Sin sorpresas ni gastos ocultos.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">¿Qué hacemos?</span>
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Soluciones completas para todo tipo de problemas de plomería.</p>
+            </div>
+
+            <div class="services__tabs reveal">
+                <button class="services__tab active" data-tab="reparaciones">Reparaciones</button>
+                <button class="services__tab" data-tab="desagues">Desagües</button>
+                <button class="services__tab" data-tab="gas">Gas</button>
+                <button class="services__tab" data-tab="instalaciones">Instalaciones</button>
+            </div>
+
+            <div class="services__categories">
+
+                <div class="services__category active" data-category="reparaciones">
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Reparación de cañerías rotas</h4>
+                            <span class="services__item-tag">Urgente</span>
+                        </div>
+                        <p class="services__item-desc">Detectamos y reparamos roturas en cañerías de agua fría, caliente y gas. Trabajo limpio y garantizado.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Reparación de grifería</h4>
+                        </div>
+                        <p class="services__item-desc">Grifos que gotean, no cierran o pierden agua. Reparación o reemplazo de cualquier marca.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Reparación de cisternas</h4>
+                        </div>
+                        <p class="services__item-desc">Cisternas que no llenan, se descargan solas o hacen ruido. Solución rápida y efectiva.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Reparación de calentadores</h4>
+                        </div>
+                        <p class="services__item-desc">Calentadores a gas o eléctricos. No enciende, no calienta o pierde agua.</p>
+                    </div>
+                </div>
+
+                <div class="services__category" data-category="desagues">
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Desatasco de desagües</h4>
+                            <span class="services__item-tag">Más pedido</span>
+                        </div>
+                        <p class="services__item-desc">Pileta, bidet, bañera atascada. Destapamos con equipo profesional sin dañar las cañerías.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Limpieza de cañerías</h4>
+                        </div>
+                        <p class="services__item-desc">Limpieza preventiva y correctiva de toda la red de desagües. Eliminamos sarro y residuos.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Cámaras de inspectación</h4>
+                        </div>
+                        <p class="services__item-desc">Ingresamos una cámara para ver el estado interior de las cañerías. Diagnóstico preciso.</p>
+                    </div>
+                </div>
+
+                <div class="services__category" data-category="gas">
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Instalación de gas</h4>
+                            <span class="services__item-tag">Habilitación</span>
+                        </div>
+                        <p class="services__item-desc">Instalaciones nuevas o modificación de redes existentes. Habilitación incluida.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Reparación de fugas de gas</h4>
+                        </div>
+                        <p class="services__item-desc">Detección y reparación de fugas. Trabajamos con certificación oficial.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Habilitación de gas</h4>
+                        </div>
+                        <p class="services__item-desc">Trámites y documentación para habilitación ante la empresa distribuidora.</p>
+                    </div>
+                </div>
+
+                <div class="services__category" data-category="instalaciones">
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Instalación de sanitary</h4>
+                        </div>
+                        <p class="services__item-desc">Instalación de inodoros, bidets, lavabos y bachas. Todas las marcas.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Instalación de llaves de paso</h4>
+                        </div>
+                        <p class="services__item-desc">Llaves de paso para agua caliente y fría. Corte seguro y limpio.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Instalación de termotanques</h4>
+                        </div>
+                        <p class="services__item-desc">Instalación de termotanques a gas o eléctricos. Incluye habilitación.</p>
+                    </div>
+                    <div class="services__item reveal">
+                        <div class="services__item-header">
+                            <h4 class="services__item-name">Instalación de lavarropas</h4>
+                        </div>
+                        <p class="services__item-desc">Conexión de lavarropas automático. Agua caliente, fría y desagüe.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="services__cta reveal">
+                <p>¿No encontrás lo que necesitás? Consultanos.</p>
+                <a href="https://wa.me/5491158055802?text=Hola%2C%20tengo%20una%20consulta%20sobre%20un%20servicio%20de%20plomería"
+                   class="btn btn--primary"
+                   target="_blank"
+                   rel="noopener"
+                   data-whatsapp>
+                    Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRABAJOS (ANTES/DESPUÉS) ===== -->
+    <section class="gallery" id="trabajos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Nuestros trabajos</span>
+                <h2 class="section-title">Antes y Después</h2>
+                <p class="section-subtitle">Así quedan nuestros trabajos. Cada imagen es un problema resuelto.</p>
+            </div>
+            <div class="gallery__grid">
+                <div class="gallery__item gallery__item--wide reveal">
+                    <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&h=500&fit=crop&q=80"
+                         alt="Reparación de cañería" loading="lazy">
+                    <div class="gallery__item-overlay">
+                        <span>Reparación de cañería principal</span>
+                    </div>
+                </div>
+                <div class="gallery__item reveal">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=450&fit=crop&q=80"
+                         alt="Instalación de grifería" loading="lazy">
+                    <div class="gallery__item-overlay">
+                        <span>Grifería completa</span>
+                    </div>
+                </div>
+                <div class="gallery__item reveal">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=450&fit=crop&q=80"
+                         alt="Destape de desagüe" loading="lazy">
+                    <div class="gallery__item-overlay">
+                        <span>Destape de desagüe</span>
+                    </div>
+                </div>
+                <div class="gallery__item reveal">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop&q=80"
+                         alt="Instalación sanitaria" loading="lazy">
+                    <div class="gallery__item-overlay">
+                        <span>Baño completo</span>
+                    </div>
+                </div>
+                <div class="gallery__item gallery__item--wide reveal">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop&q=80"
+                         alt="Instalación de gas" loading="lazy">
+                    <div class="gallery__item-overlay">
+                        <span>Red de gas completa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Lo que dicen</span>
+                <h2 class="section-title">Reseñas de Clientes</h2>
+                <div class="testimonials__rating">
+                    <span class="testimonials__rating-num">4.9</span>
+                    <div class="testimonials__stars-wrap">
+                        <div class="testimonials__stars">★★★★★</div>
+                        <span class="testimonials__rating-count">basado en 200+ reseñas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials__grid">
+                <div class="testimonial reveal">
+                    <div class="testimonial__header">
+                        <div class="testimonial__avatar">MG</div>
+                        <div>
+                            <h4 class="testimonial__name">María G.</h4>
+                            <span class="testimonial__date">hace 1 semana</span>
+                        </div>
+                    </div>
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">"Se nos rompió una cañería a las 3 de la madrugada. Llamé y en 20 minutos ya estaba el plomero. Solucionó todo rápido y el precio fue justo. ¡Totalmente recomendable!"</p>
+                </div>
+                <div class="testimonial reveal">
+                    <div class="testimonial__header">
+                        <div class="testimonial__avatar">CL</div>
+                        <div>
+                            <h4 class="testimonial__name">Carlos L.</h4>
+                            <span class="testimonial__date">hace 2 semanas</span>
+                        </div>
+                    </div>
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">"Me habilitaron el gas en el departamento. Todo el trámite lo hicieron ellos. Profesionales de primera, cumplidores y puntuales. El mejor plomero que encontré."</p>
+                </div>
+                <div class="testimonial reveal">
+                    <div class="testimonial__header">
+                        <div class="testimonial__avatar">AR</div>
+                        <div>
+                            <h4 class="testimonial__name">Ana R.</h4>
+                            <span class="testimonial__date">hace 1 mes</span>
+                        </div>
+                    </div>
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">"Instalaron todo el baño nuevo en mi casa. Trabajo impecable, limpio y dejaron todo funcionando a la perfección. El presupuesto fue exacto, sin sorpresas."</p>
+                </div>
+                <div class="testimonial reveal">
+                    <div class="testimonial__header">
+                        <div class="testimonial__avatar">JM</div>
+                        <div>
+                            <h4 class="testimonial__name">Jorge M.</h4>
+                            <span class="testimonial__date">hace 2 meses</span>
+                        </div>
+                    </div>
+                    <div class="testimonial__stars">★★★★☆</div>
+                    <p class="testimonial__text">"Tenía una filtración que no me la podía encontrar nadie. Ellos vinieron con la cámara, detectaron el problema y lo solucionaron el mismo día. Muy profesionales."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact__grid">
+                <div class="contact__info reveal">
+                    <span class="section-tag">Contactanos</span>
+                    <h2 class="section-title section-title--left">¿Necesitás un plomero?</h2>
+                    <p>Completá el formulario y te contactamos a la brevedad. Para emergencias, llamanos directamente.</p>
+
+                    <div class="contact__details">
+                        <div class="contact__detail">
+                            <span class="contact__detail-label">Teléfono</span>
+                            <a href="tel:+5491158055802">011 5805-5802</a>
+                        </div>
+                        <div class="contact__detail">
+                            <span class="contact__detail-label">WhatsApp</span>
+                            <a href="https://wa.me/5491158055802?text=Hola%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" data-whatsapp>Enviar mensaje</a>
+                        </div>
+                        <div class="contact__detail">
+                            <span class="contact__detail-label">Zona de cobertura</span>
+                            <span>Capital Federal y GBA</span>
+                        </div>
+                        <div class="contact__detail">
+                            <span class="contact__detail-label">Horario</span>
+                            <span>24 horas, 7 días de la semana</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__form-wrap reveal">
+                    <form class="contact__form" id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nombre</label>
+                            <input type="text" id="contactName" name="name" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Teléfono</label>
+                            <input type="tel" id="contactPhone" name="phone" required placeholder="Ej: 11 5555-1234">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactService">Servicio</label>
+                            <select id="contactService" name="service" required>
+                                <option value="">Elegí un servicio</option>
+                                <option>Reparación de cañerías</option>
+                                <option>Reparación de grifería</option>
+                                <option>Desatasco de desagües</option>
+                                <option>Instalación de gas</option>
+                                <option>Reparación de gas</option>
+                                <option>Instalación sanitaria</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Mensaje <span class="form-optional">(opcional)</span></label>
+                            <textarea id="contactMessage" name="message" rows="3" placeholder="Contanos brevemente tu problema"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">
+                            Enviar por WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <span class="footer__logo" data-dynamic="footer-name">PlomeroPro</span>
+                    <p class="footer__tagline">Servicio profesional de plomería. Emergencias 24/7.</p>
+                </div>
+                <div class="footer__col">
+                    <h4>Servicios</h4>
+                    <p>Reparaciones</p>
+                    <p>Desagües</p>
+                    <p>Gas</p>
+                    <p>Instalaciones</p>
+                </div>
+                <div class="footer__col">
+                    <h4>Cobertura</h4>
+                    <p>Capital Federal</p>
+                    <p>Gran Buenos Aires</p>
+                    <p>Zona Norte</p>
+                    <p>Zona Sur</p>
+                </div>
+                <div class="footer__col">
+                    <h4>Contacto</h4>
+                    <p><a href="tel:+5491158055802">011 5805-5802</a></p>
+                    <p>Emergencias 24/7</p>
+                    <a href="https://wa.me/5491158055802?text=Hola%2C%20tengo%20una%20consulta"
+                       class="btn btn--primary btn--sm"
+                       target="_blank"
+                       rel="noopener"
+                       data-whatsapp>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span id="currentYear"></span> <span data-dynamic="footer-name">PlomeroPro</span>. Todos los derechos reservados.</p>
+                <a href="https://tuweben3dias.com" target="_blank" rel="noopener" class="footer__credit">tuweben3dias.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/5491158055802?text=Hola%2C%20quiero%20hacer%20una%20consulta%20de%20plomería"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener"
+       aria-label="Contactar por WhatsApp"
+       id="whatsappFloat"
+       data-whatsapp>
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script src="./script.js"></script>
+</body>
+</html>
