@@ -32,11 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
         init() {
             const name = this.params.get('n');
             const company = this.params.get('e');
+            const phone = this.params.get('t');
 
             if (company) {
                 this.apply({ type: 'company', value: company });
             } else if (name) {
                 this.apply({ type: 'name', value: name });
+            }
+
+            if (phone) {
+                this.applyPhone(phone);
             }
         },
 
@@ -67,13 +72,45 @@ document.addEventListener('DOMContentLoaded', () => {
             this.updateMeta(value);
         },
 
+        applyPhone(phone) {
+            // Clean phone: remove spaces, dashes, parentheses
+            const cleanPhone = phone.replace(/[\s\-()]/g, '');
+
+            // tel: links → use raw phone (ej: tel:1155551234)
+            document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+                el.href = `tel:${cleanPhone}`;
+            });
+
+            // wa.me links → prepend 549 (ej: wa.me/5491155551234)
+            const whatsappPhone = `549${cleanPhone}`;
+            document.querySelectorAll('[data-whatsapp]').forEach(el => {
+                const url = new URL(el.href);
+                url.hostname = 'wa.me';
+                url.pathname = `/${whatsappPhone}`;
+                el.href = url.toString();
+            });
+
+            // Update displayed phone numbers (text content)
+            const displayPhone = cleanPhone.replace(/(\d{4})(\d{4})/, '$1-$2');
+            document.querySelectorAll('.emergency-bar__phone, .contact__detail a[href^="tel:"]').forEach(el => {
+                el.textContent = `Llamar ahora: ${displayPhone}`;
+            });
+
+            // Update the contact form WhatsApp number
+            this._whatsappNumber = whatsappPhone;
+        },
+
         updateWhatsApp(name) {
+            const phone = this.params.get('t');
+            const phoneClean = phone ? phone.replace(/[\s\-()]/g, '') : '1158055802';
+            const whatsappPhone = `549${phoneClean}`;
+
             const message = encodeURIComponent(
                 `Hola! Me comunico desde la página de ${name}. Quisiera hacer una consulta.`
             );
 
             document.querySelectorAll('[data-whatsapp]').forEach(el => {
-                const baseUrl = el.href.split('?')[0];
+                const baseUrl = `https://wa.me/${whatsappPhone}`;
                 el.href = `${baseUrl}?text=${message}`;
             });
         },
@@ -430,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ── CONTACT FORM → WHATSAPP ──────── */
     const contactForm = document.getElementById('contactForm');
-    const whatsappNumber = '5491158055802';
+    const defaultWhatsappNumber = '5491158055802';
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -441,6 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const service = document.getElementById('contactService').value;
             const urgency = document.getElementById('contactUrgency').value;
             const message = document.getElementById('contactMessage').value.trim();
+
+            // Use personalized phone if set via ?t= param
+            const whatsappNumber = Personalization._whatsappNumber || defaultWhatsappNumber;
 
             // Build message
             let whatsappMessage = `Hola! Me comunico desde la página web.\n\n`;
