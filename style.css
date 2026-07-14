@@ -693,8 +693,10 @@ strong {
 
 .hero__title-line--accent {
     color: var(--accent);
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    /* font-size: clamp(2rem, 5.5vw, 4rem); */
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 20px rgba(43, 122, 120, 0.3);
 }
 
 .hero__subtitle {
@@ -781,7 +783,7 @@ strong {
 
 .counters__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-lg);
 }
 
@@ -891,7 +893,7 @@ strong {
 
 .differentials {
     padding: var(--section-pad) 0;
-    background-color: var(--primary-light);
+    background-color: var(--primary);
 }
 
 .differentials__grid {
