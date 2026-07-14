@@ -889,7 +889,7 @@ strong {
 
 .differentials {
     padding: var(--section-pad) 0;
-    background-color: var(--primary);
+    background-color: var(--primary-lighter);
 }
 
 .differentials__grid {
