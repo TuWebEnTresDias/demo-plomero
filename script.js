@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })(),
 
         init() {
-            const name = this.params.get('n') + ' | Plomero';
+            // const name = this.params.get('n') + ' | Plomero';
+            const name = this.params.get('n');
             const company = this.params.get('e') + ' | Plomeria';
             const phone = this.params.get('t');
 
