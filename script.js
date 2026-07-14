@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // params: new URLSearchParams(window.location.search),
 
         params: (() => {
-            
+
             // First try current page URL
             const local = new URLSearchParams(window.location.search);
             if (local.toString()) return local;
@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     case 'name':
                     case 'logo':
                     case 'footer-name':
-                        el.textContent = value;
+                        // el.textContent = value;
+                        el.textContent = `${value} | Plomero`;
                         break;
                     case 'title':
                         el.textContent = `${value} | Servicio de Plomería`;
