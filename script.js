@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })(),
 
         init() {
-            
             const rawName = this.params.get('n');
             const rawCompany = this.params.get('e');
             const phone = this.params.get('t');
@@ -139,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMeta(name) {
             const meta = document.querySelector('meta[name="description"]');
             if (meta) {
-                meta.content = `${name} - Servicio profesional de plomería. Emergencias 24/7, garantía en todos los trabajos.`;
+                meta.content = `${name} - Servicio profesional de plomería. Emergencias, garantía en todos los trabajos.`;
             }
         }
     };
