@@ -13,18 +13,6 @@
 </head>
 <body>
 
-    <!-- ===== LOADER ===== -->
-    <div class="loader" id="loader">
-        <div class="loader__inner">
-            <div class="loader__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                </svg>
-            </div>
-            <span class="loader__text" data-dynamic="logo">Plomero</span>
-        </div>
-    </div>
-
     <!-- ===== EMERGENCY BAR ===== -->
     <div class="emergency-bar" id="emergencyBar">
         <div class="emergency-bar__inner">
@@ -74,12 +62,7 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
         <div class="hero__bg">
-            <!-- <video class="hero__video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&h=1080&fit=crop&q=80"> -->
-            <video class="hero__video" preload="auto" autoplay muted loop playsinline>
-                <source src="https://videos.pexels.com/video-files/7584762/7584762-uhd_2560_1440_25fps.mp4" type="video/mp4">
-                <!-- <source src="https://videos.pexels.com/video-files/7584762/7584762-hd_1920_1080_25fps.mp4" type="video/mp4"> -->
-                <!-- <source src="https://videos.pexels.com/video-files/854671/854671-hd_1920_1080_25fps.mp4" type="video/mp4"> -->
-            </video>
+            <img class="hero__bg-img" src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&h=1080&fit=crop&q=80" alt="Plomero trabajando" loading="eager">
         </div>
         <div class="hero__overlay"></div>
 
@@ -114,12 +97,6 @@
             </div>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="hero__scroll">
-            <div class="hero__scroll-mouse">
-                <div class="hero__scroll-wheel"></div>
-            </div>
-        </div>
     </section>
 
     <!-- ===== COUNTERS ===== -->
@@ -259,112 +236,86 @@
                 <p class="section-subtitle">Soluciones completas para todo tipo de problemas de plomería.</p>
             </div>
 
-            <div class="services__tabs reveal">
-                <button class="services__tab active" data-tab="instalaciones">Instalaciones</button>
-                <button class="services__tab" data-tab="reparaciones">Reparaciones</button>
-                <button class="services__tab" data-tab="desagues">Desagües</button>
-                <button class="services__tab" data-tab="gas">Gas</button>
-            </div>
+            <div class="services__list">
 
-            <div class="services__categories">
-
-                <div class="services__category active" data-category="instalaciones">
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Instalación de sanitary</h4>
-                        </div>
-                        <p class="services__item-desc">Instalación de inodoros, bidets, lavabos y bachas. Todas las marcas.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Instalación de llaves de paso</h4>
-                        </div>
-                        <p class="services__item-desc">Llaves de paso para agua caliente y fría. Corte seguro y limpio.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Instalación de termotanques</h4>
-                        </div>
-                        <p class="services__item-desc">Instalación de termotanques a gas o eléctricos.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Instalación de lavarropas</h4>
-                        </div>
-                        <p class="services__item-desc">Conexión de lavarropas automático. Agua caliente, fría y desagüe.</p>
-                    </div>
+                <div class="services__category reveal">
+                    <h3 class="services__category-title">Instalaciones</h3>
+                    <ul class="services__items">
+                        <li class="services__item">
+                            <span class="services__item-name">Instalación de sanitary</span>
+                            <span class="services__item-desc">Inodoros, bidets, lavabos y bachas. Todas las marcas.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Instalación de llaves de paso</span>
+                            <span class="services__item-desc">Llaves de paso para agua caliente y fría.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Instalación de termotanques</span>
+                            <span class="services__item-desc">Termotanques a gas o eléctricos.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Instalación de lavarropas</span>
+                            <span class="services__item-desc">Conexión de lavarropas automático.</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="services__category" data-category="reparaciones">
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Reparación de cañerías rotas</h4>
-                            <span class="services__item-tag services__item-tag--urgent">Urgente</span>
-                        </div>
-                        <p class="services__item-desc">Detectamos y reparamos roturas en cañerías de agua fría, caliente y gas.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Reparación de grifería</h4>
-                        </div>
-                        <p class="services__item-desc">Grifos que gotean, no cierran o pierden agua. Reparación o reemplazo de cualquier marca.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Reparación de cisternas</h4>
-                        </div>
-                        <p class="services__item-desc">Cisternas que no llenan, se descargan solas o hacen ruido.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Reparación de calentadores</h4>
-                        </div>
-                        <p class="services__item-desc">Calentadores a gas o eléctricos. No enciende, no calienta o pierde agua.</p>
-                    </div>
+                <div class="services__category reveal">
+                    <h3 class="services__category-title">Reparaciones</h3>
+                    <ul class="services__items">
+                        <li class="services__item">
+                            <span class="services__item-name">Reparación de cañerías rotas</span>
+                            <span class="services__item-desc">Detectamos y reparamos roturas en cañerías de agua y gas.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Reparación de grifería</span>
+                            <span class="services__item-desc">Grifos que gotean, no cierran o pierden agua.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Reparación de cisternas</span>
+                            <span class="services__item-desc">Cisternas que no llenan, se descargan solas o hacen ruido.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Reparación de calentadores</span>
+                            <span class="services__item-desc">Calentadores a gas o eléctricos.</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="services__category" data-category="desagues">
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Desatasco de desagües</h4>
-                            <span class="services__item-tag">Más pedido</span>
-                        </div>
-                        <p class="services__item-desc">Pileta, bidet, bañera atascada. Destapamos con equipo profesional.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Limpieza de cañerías</h4>
-                        </div>
-                        <p class="services__item-desc">Limpieza preventiva y correctiva de toda la red de desagües.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Cámaras de inspectación</h4>
-                        </div>
-                        <p class="services__item-desc">Ingresamos una cámara para ver el estado interior de las cañerías.</p>
-                    </div>
+                <div class="services__category reveal">
+                    <h3 class="services__category-title">Desagües</h3>
+                    <ul class="services__items">
+                        <li class="services__item">
+                            <span class="services__item-name">Desatasco de desagües</span>
+                            <span class="services__item-desc">Pileta, bidet, bañera atascada. Equipo profesional.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Limpieza de cañerías</span>
+                            <span class="services__item-desc">Limpieza preventiva y correctiva de la red de desagües.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Cámaras de inspectación</span>
+                            <span class="services__item-desc">Cámara para ver el estado interior de las cañerías.</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="services__category" data-category="gas">
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Instalación de gas</h4>
-                            <span class="services__item-tag">Habilitación</span>
-                        </div>
-                        <p class="services__item-desc">Instalaciones nuevas o modificación de redes existentes.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Reparación de fugas de gas</h4>
-                        </div>
-                        <p class="services__item-desc">Detección y reparación de fugas. Trabajamos con certificación oficial.</p>
-                    </div>
-                    <div class="services__item reveal">
-                        <div class="services__item-header">
-                            <h4 class="services__item-name">Habilitación de gas</h4>
-                        </div>
-                        <p class="services__item-desc">Trámites y documentación para habilitación ante la empresa distribuidora.</p>
-                    </div>
+                <div class="services__category reveal">
+                    <h3 class="services__category-title">Gas</h3>
+                    <ul class="services__items">
+                        <li class="services__item">
+                            <span class="services__item-name">Instalación de gas</span>
+                            <span class="services__item-desc">Instalaciones nuevas o modificación de redes existentes.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Reparación de fugas de gas</span>
+                            <span class="services__item-desc">Detección y reparación de fugas. Certificación oficial.</span>
+                        </li>
+                        <li class="services__item">
+                            <span class="services__item-name">Habilitación de gas</span>
+                            <span class="services__item-desc">Trámites y documentación ante la empresa distribuidora.</span>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
@@ -382,7 +333,7 @@
         </div>
     </section>
 
-    <!-- ===== TRABAJOS (GALLERY CAROUSEL) ===== -->
+    <!-- ===== TRABAJOS (GALLERY) ===== -->
     <section class="gallery" id="trabajos">
         <div class="container">
             <div class="section-header reveal">
@@ -391,96 +342,47 @@
                 <p class="section-subtitle">Así quedan nuestros trabajos. Cada imagen es un problema resuelto.</p>
             </div>
 
-            <div class="gallery__carousel reveal" id="galleryCarousel">
-                <div class="gallery__track">
-                    <div class="gallery__slide">
-                        <div class="gallery__comparison" data-comparison>
-                            <div class="gallery__comparison-before">
-                                <img src="https://images.unsplash.com/photo-1686890363933-4a1125d4e3b0?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Antes - Cañería dañada" loading="lazy">
-                                <span class="gallery__comparison-label">Antes</span>
-                            </div>
-                            <div class="gallery__comparison-after">
-                                <img src="https://images.unsplash.com/photo-1582235952774-9d628b1fe947?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMxfHxmaXhlZCUyMHBpcGV8ZW58MHx8MHx8fDA%3D" alt="Después - Cañería reparada" loading="lazy">
-                                <span class="gallery__comparison-label">Después</span>
-                            </div>
-                            <div class="gallery__comparison-slider" data-slider>
-                                <div class="gallery__comparison-handle">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="15,18 9,12 15,6"/>
-                                    </svg>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="9,18 15,12 9,6"/>
-                                    </svg>
-                                </div>
-                            </div>
+            <div class="gallery__grid reveal">
+                <div class="gallery__item">
+                    <div class="gallery__pair">
+                        <div class="gallery__photo">
+                            <img src="https://images.unsplash.com/photo-1686890363933-4a1125d4e3b0?q=80&w=600&auto=format&fit=crop" alt="Cañería dañada" loading="lazy">
+                            <span class="gallery__label">Antes</span>
                         </div>
-                        <p class="gallery__slide-caption">Reparación de cañería principal — Caballito</p>
-                    </div>
-
-                    <div class="gallery__slide">
-                        <div class="gallery__comparison" data-comparison>
-                            <div class="gallery__comparison-before">
-                                <img src="https://images.unsplash.com/photo-1662922487611-410bf8d1497f?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Antes - Desagüe atascado" loading="lazy">
-                                <span class="gallery__comparison-label">Antes</span>
-                            </div>
-                            <div class="gallery__comparison-after">
-                                <img src="https://images.unsplash.com/photo-1754212536450-1b3591a3b837?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Después - Baño renovado" loading="lazy">
-                                <span class="gallery__comparison-label">Después</span>
-                            </div>
-                            <div class="gallery__comparison-slider" data-slider>
-                                <div class="gallery__comparison-handle">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="15,18 9,12 15,6"/>
-                                    </svg>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="9,18 15,12 9,6"/>
-                                    </svg>
-                                </div>
-                            </div>
+                        <div class="gallery__photo">
+                            <img src="https://images.unsplash.com/photo-1582235952774-9d628b1fe947?w=600&auto=format&fit=crop&q=60" alt="Cañería reparada" loading="lazy">
+                            <span class="gallery__label">Después</span>
                         </div>
-                        <p class="gallery__slide-caption">Destape y renovación completa — Palermo</p>
                     </div>
-
-                    <div class="gallery__slide">
-                        <div class="gallery__comparison" data-comparison>
-                            <div class="gallery__comparison-before">
-                                <img src="https://images.unsplash.com/photo-1776802740593-ab7833cd813a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Antes - Red de gas" loading="lazy">
-                                <span class="gallery__comparison-label">Antes</span>
-                            </div>
-                            <div class="gallery__comparison-after">
-                                <img src="https://images.unsplash.com/photo-1695036304257-011e7fea8cd9?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Después - Red de gas instalada" loading="lazy">
-                                <span class="gallery__comparison-label">Después</span>
-                            </div>
-                            <div class="gallery__comparison-slider" data-slider>
-                                <div class="gallery__comparison-handle">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="15,18 9,12 15,6"/>
-                                    </svg>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="9,18 15,12 9,6"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="gallery__slide-caption">Instalación de red de gas — Belgrano</p>
-                    </div>
+                    <p class="gallery__caption">Reparación de cañería principal — Caballito</p>
                 </div>
 
-                <button class="gallery__nav gallery__nav--prev" aria-label="Anterior">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15,18 9,12 15,6"/>
-                    </svg>
-                </button>
-                <button class="gallery__nav gallery__nav--next" aria-label="Siguiente">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9,18 15,12 9,6"/>
-                    </svg>
-                </button>
+                <div class="gallery__item">
+                    <div class="gallery__pair">
+                        <div class="gallery__photo">
+                            <img src="https://images.unsplash.com/photo-1662922487611-410bf8d1497f?q=80&w=600&auto=format&fit=crop" alt="Desagüe atascado" loading="lazy">
+                            <span class="gallery__label">Antes</span>
+                        </div>
+                        <div class="gallery__photo">
+                            <img src="https://images.unsplash.com/photo-1754212536450-1b3591a3b837?q=80&w=600&auto=format&fit=crop" alt="Baño renovado" loading="lazy">
+                            <span class="gallery__label">Después</span>
+                        </div>
+                    </div>
+                    <p class="gallery__caption">Destape y renovación completa — Palermo</p>
+                </div>
 
-                <div class="gallery__dots" id="galleryDots">
-                    <button class="gallery__dot active" data-index="0" aria-label="Slide 1"></button>
-                    <button class="gallery__dot" data-index="1" aria-label="Slide 2"></button>
-                    <button class="gallery__dot" data-index="2" aria-label="Slide 3"></button>
+                <div class="gallery__item">
+                    <div class="gallery__pair">
+                        <div class="gallery__photo">
+                            <img src="https://images.unsplash.com/photo-1776802740593-ab7833cd813a?q=80&w=600&auto=format&fit=crop" alt="Red de gas vieja" loading="lazy">
+                            <span class="gallery__label">Antes</span>
+                        </div>
+                        <div class="gallery__photo">
+                            <img src="https://images.unsplash.com/photo-1695036304257-011e7fea8cd9?q=80&w=600&auto=format&fit=crop" alt="Red de gas nueva" loading="lazy">
+                            <span class="gallery__label">Después</span>
+                        </div>
+                    </div>
+                    <p class="gallery__caption">Instalación de red de gas — Belgrano</p>
                 </div>
             </div>
         </div>
@@ -813,40 +715,6 @@
             </svg>
             WhatsApp
         </a>
-    </div>
-
-    <!-- ===== EXIT INTENT POPUP ===== -->
-    <div class="exit-popup" id="exitPopup">
-        <div class="exit-popup__overlay"></div>
-        <div class="exit-popup__modal">
-            <button class="exit-popup__close" id="exitPopupClose" aria-label="Cerrar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
-            <div class="exit-popup__icon">🚨</div>
-            <h3 class="exit-popup__title">¿Tenés una emergencia?</h3>
-            <p class="exit-popup__text">No dejes para mañana lo que podés solucionar hoy. Llamanos ahora o escribinos por WhatsApp.</p>
-            <div class="exit-popup__actions">
-                <a href="tel:+5491158055802" class="btn btn--primary btn--glow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    Llamar ahora
-                </a>
-                <a href="https://wa.me/5491158055802?text=Hola%2C%20tengo%20una%20emergencia%20de%20plomería"
-                   class="btn btn--whatsapp"
-                   target="_blank"
-                   rel="noopener"
-                   data-whatsapp>
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                    WhatsApp
-                </a>
-            </div>
-        </div>
     </div>
 
     <script src="./script.js"></script>

@@ -1,29 +1,9 @@
 /* ========================================
    PLOMERO — Landing Page Scripts
-   WOW Factor Interactions & Personalization
+   Clean & Functional Interactions
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ── LOADER ──────────────────────── */
-    const loader = document.getElementById('loader');
-
-    const hideLoader = () => {
-        loader.classList.add('hidden');
-        document.body.style.overflow = '';
-    };
-
-    // Hide loader after content is ready
-    document.body.style.overflow = 'hidden';
-    if (document.readyState === 'complete') {
-        setTimeout(hideLoader, 600);
-    } else {
-        window.addEventListener('load', () => setTimeout(hideLoader, 600));
-    }
-
-    // Fallback: hide loader after 3s max
-    setTimeout(hideLoader, 3000);
-
 
     /* ── PERSONALIZATION ENGINE ──────── */
     const Personalization = {
@@ -217,49 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* ── SERVICES TABS ────────────────── */
-    const serviceTabs = document.querySelectorAll('.services__tab');
-    const serviceCategories = document.querySelectorAll('.services__category');
-
-    serviceTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetTab = tab.dataset.tab;
-
-            // Update active tab
-            serviceTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            // Show corresponding category
-            serviceCategories.forEach(cat => {
-                if (cat.dataset.category === targetTab) {
-                    cat.classList.add('active');
-                    // Re-trigger reveal animations for items in this category
-                    const items = cat.querySelectorAll('.reveal');
-                    items.forEach((item, index) => {
-                        item.classList.remove('visible');
-                        setTimeout(() => {
-                            item.classList.add('visible');
-                        }, 50 + (index * 80));
-                    });
-                } else {
-                    cat.classList.remove('active');
-                }
-            });
-        });
-    });
-
-    // Initialize first category items
-    const firstCategory = document.querySelector('.services__category.active');
-    if (firstCategory) {
-        const items = firstCategory.querySelectorAll('.reveal');
-        items.forEach((item, index) => {
-            setTimeout(() => {
-                item.classList.add('visible');
-            }, 300 + (index * 100));
-        });
-    }
-
-
     /* ── SCROLL REVEAL ANIMATIONS ─────── */
     const revealElements = document.querySelectorAll('.reveal');
 
@@ -332,133 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         countersObserver.observe(countersSection);
     }
-
-
-    /* ── GALLERY CAROUSEL ─────────────── */
-    const carousel = document.getElementById('galleryCarousel');
-    if (carousel) {
-        const track = carousel.querySelector('.gallery__track');
-        const slides = carousel.querySelectorAll('.gallery__slide');
-        const prevBtn = carousel.querySelector('.gallery__nav--prev');
-        const nextBtn = carousel.querySelector('.gallery__nav--next');
-        const dots = carousel.querySelectorAll('.gallery__dot');
-        let currentSlide = 0;
-        let autoplayInterval;
-
-        const goToSlide = (index) => {
-            currentSlide = index;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        };
-
-        const nextSlide = () => {
-            goToSlide((currentSlide + 1) % slides.length);
-        };
-
-        const prevSlide = () => {
-            goToSlide((currentSlide - 1 + slides.length) % slides.length);
-        };
-
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                goToSlide(parseInt(dot.dataset.index));
-                resetAutoplay();
-            });
-        });
-
-        // Autoplay
-        const startAutoplay = () => {
-            autoplayInterval = setInterval(nextSlide, 5000);
-        };
-
-        const resetAutoplay = () => {
-            clearInterval(autoplayInterval);
-            startAutoplay();
-        };
-
-        startAutoplay();
-
-        // Touch/swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
-                resetAutoplay();
-            }
-        }, { passive: true });
-
-        // Pause on hover
-        carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-        carousel.addEventListener('mouseleave', startAutoplay);
-    }
-
-
-    /* ── BEFORE/AFTER COMPARISON SLIDER ── */
-    const comparisons = document.querySelectorAll('[data-comparison]');
-
-    comparisons.forEach(comparison => {
-        const slider = comparison.querySelector('[data-slider]');
-        const before = comparison.querySelector('.gallery__comparison-before');
-        let isDragging = false;
-
-        const updateSlider = (clientX) => {
-            const rect = comparison.getBoundingClientRect();
-            let x = clientX - rect.left;
-            x = Math.max(0, Math.min(x, rect.width));
-            const percent = (x / rect.width) * 100;
-
-            before.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-            slider.style.left = `${percent}%`;
-        };
-
-        // Mouse events
-        comparison.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            updateSlider(e.clientX);
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            updateSlider(e.clientX);
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        // Touch events
-        comparison.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            updateSlider(e.touches[0].clientX);
-        }, { passive: true });
-
-        comparison.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            updateSlider(e.touches[0].clientX);
-        }, { passive: true });
-
-        comparison.addEventListener('touchend', () => {
-            isDragging = false;
-        });
-    });
 
 
     /* ── FAQ ACCORDION ────────────────── */
@@ -568,77 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* ── EXIT INTENT POPUP ────────────── */
-    const exitPopup = document.getElementById('exitPopup');
-    const exitPopupClose = document.getElementById('exitPopupClose');
-    let exitShown = false;
-
-    if (exitPopup) {
-        const showExitPopup = () => {
-            if (!exitShown && window.scrollY > 200) {
-                exitShown = true;
-                exitPopup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        };
-
-        const hideExitPopup = () => {
-            exitPopup.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-
-        // Mouse leave viewport (top)
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 0) {
-                showExitPopup();
-            }
-        });
-
-        // Also show on mobile back button hint (beforeunload)
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            const st = window.scrollY;
-            // If user scrolls up quickly near the top
-            if (st < 50 && lastScrollTop > 200) {
-                showExitPopup();
-            }
-            lastScrollTop = st;
-        }, { passive: true });
-
-        if (exitPopupClose) {
-            exitPopupClose.addEventListener('click', hideExitPopup);
-        }
-
-        // Close on overlay click
-        exitPopup.querySelector('.exit-popup__overlay').addEventListener('click', hideExitPopup);
-
-        // Close on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && exitPopup.classList.contains('active')) {
-                hideExitPopup();
-            }
-        });
-    }
-
-
-    /* ── BUTTON RIPPLE EFFECT ─────────── */
-    document.querySelectorAll('.btn--ripple').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            this.style.setProperty('--ripple-x', x + 'px');
-            this.style.setProperty('--ripple-y', y + 'px');
-            this.classList.add('ripple-active');
-
-            setTimeout(() => {
-                this.classList.remove('ripple-active');
-            }, 600);
-        });
-    });
-
-
     /* ── ACTIVE NAV HIGHLIGHT ──────────── */
     const sections = document.querySelectorAll('section[id]');
 
@@ -662,19 +401,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', highlightNav, { passive: true });
-
-
-    /* ── PARALLAX EFFECT ON HERO ──────── */
-    const heroVideo = document.querySelector('.hero__video');
-
-    if (heroVideo) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            if (scrolled < window.innerHeight) {
-                heroVideo.style.transform = `scale(1.05) translateY(${scrolled * 0.15}px)`;
-            }
-        }, { passive: true });
-    }
 
 
     /* ── CURRENT YEAR ──────────────────── */
