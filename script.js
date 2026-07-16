@@ -206,11 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Don't handle items that are inside non-active service categories
-                const parentCategory = entry.target.closest('.services__category');
-                if (parentCategory && !parentCategory.classList.contains('active')) {
-                    return;
-                }
                 entry.target.classList.add('visible');
                 revealObserver.unobserve(entry.target);
             }
