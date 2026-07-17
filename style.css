@@ -671,85 +671,6 @@ strong {
 }
 
 
-/* ── 11. HOW IT WORKS ───────────────── */
-
-.how-it-works {
-    padding: var(--section-pad) 0;
-    background-color: var(--white);
-}
-
-.steps {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-}
-
-.step {
-    text-align: center;
-    padding: 0 var(--gap-md);
-    max-width: 280px;
-    position: relative;
-}
-
-.step__number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: var(--gap-md);
-}
-
-.step__icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto var(--gap-md);
-    color: var(--accent);
-}
-
-.step__icon svg {
-    width: 100%;
-    height: 100%;
-}
-
-.step__title {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--text);
-    margin-bottom: var(--gap-sm);
-}
-
-.step__text {
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-.step__connector {
-    display: flex;
-    align-items: center;
-    padding-top: 52px;
-    color: var(--accent);
-    opacity: 0.4;
-    flex-shrink: 0;
-    width: 80px;
-}
-
-.step__connector svg {
-    width: 100%;
-    height: auto;
-}
-
-
 /* ── 12. DIFERENCIALES ──────────────── */
 
 .differentials {
@@ -943,96 +864,46 @@ strong {
 }
 
 
-/* ── 15. COVERAGE MAP ───────────────── */
+/* ── 15. COVERAGE ───────────────────── */
 
 .coverage {
     padding: var(--section-pad) 0;
     background-color: var(--white);
 }
 
-.coverage__grid {
+.coverage__cards {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: var(--gap-xl);
-    align-items: center;
-}
-
-.coverage__map {
-    position: relative;
-}
-
-.coverage__svg {
-    width: 100%;
-    height: auto;
-}
-
-.coverage__zone {
-    transition: all 0.3s ease;
-}
-
-.coverage__zone--active {
-    filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.3));
-}
-
-.coverage__pin {
-    animation: pinPulse 2s ease-in-out infinite;
-}
-
-.coverage__pin-ring {
-    animation: pinRing 2s ease-in-out infinite;
-}
-
-@keyframes pinPulse {
-    0%, 100% { r: 8; }
-    50% { r: 10; }
-}
-
-@keyframes pinRing {
-    0% { opacity: 0.4; transform-origin: center; }
-    100% { opacity: 0; }
-}
-
-.coverage__zones {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--gap-md);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.coverage__zone-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--gap-sm);
-    padding: var(--gap-md);
-    border-radius: var(--radius);
+.coverage__card {
+    padding: var(--gap-lg);
     border: 1px solid var(--border);
-    background-color: var(--white);
-    transition: box-shadow var(--normal);
+    border-radius: var(--radius);
+    background-color: var(--bg-alt);
+    text-align: center;
+    transition: box-shadow var(--normal), transform var(--normal);
 }
 
-.coverage__zone-item:hover {
-    box-shadow: var(--shadow-sm);
+.coverage__card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
 }
 
-.coverage__zone-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    margin-top: 6px;
-    flex-shrink: 0;
-}
-
-.coverage__zone-item h4 {
+.coverage__card-title {
     font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text);
-    margin-bottom: 2px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: var(--gap-xs);
 }
 
-.coverage__zone-item p {
+.coverage__card-text {
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
 }
 
@@ -1135,76 +1006,6 @@ strong {
     color: var(--text-muted);
     line-height: 1.6;
     font-style: italic;
-}
-
-
-/* ── 17. FAQ ────────────────────────── */
-
-.faq {
-    padding: var(--section-pad) 0;
-    background-color: var(--white);
-}
-
-.faq__list {
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-.faq__item {
-    border-bottom: 1px solid var(--border);
-}
-
-.faq__question {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--gap-sm);
-    padding: var(--gap-md) 0;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-align: left;
-    cursor: pointer;
-    transition: color var(--fast);
-}
-
-.faq__question:hover {
-    color: var(--accent);
-}
-
-.faq__chevron {
-    width: 20px;
-    height: 20px;
-    color: var(--text-muted);
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.faq__item.active .faq__chevron {
-    transform: rotate(180deg);
-    color: var(--accent);
-}
-
-.faq__answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.faq__item.active .faq__answer {
-    max-height: 300px;
-}
-
-.faq__answer p {
-    padding-bottom: var(--gap-md);
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.7;
 }
 
 
@@ -1557,20 +1358,7 @@ strong {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .steps {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-    }
-
-    .step__connector {
-        transform: rotate(90deg);
-        padding-top: 0;
-        width: 60px;
-        height: 60px;
-    }
-
-    .coverage__grid {
+    .coverage__cards {
         grid-template-columns: 1fr;
     }
 
@@ -1642,6 +1430,28 @@ strong {
 
     .hero__cta .btn {
         width: 100%;
+    }
+
+    .services__list {
+        grid-template-columns: 1fr;
+        gap: var(--gap-md);
+    }
+
+    .services__category-title {
+        font-size: 1.1rem;
+    }
+
+    .services__item-name {
+        font-size: 1.15rem;
+        font-weight: 700;
+    }
+
+    .services__item-desc {
+        font-size: 0.85rem;
+    }
+
+    .coverage__cards {
+        grid-template-columns: 1fr;
     }
 
     /* Hide desktop WhatsApp float, show mobile sticky CTA */

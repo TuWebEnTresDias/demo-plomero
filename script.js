@@ -269,30 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* ── FAQ ACCORDION ────────────────── */
-    const faqItems = document.querySelectorAll('.faq__item');
-
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq__question');
-
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-
-            // Close all
-            faqItems.forEach(i => {
-                i.classList.remove('active');
-                i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
-            });
-
-            // Open clicked (if wasn't active)
-            if (!isActive) {
-                item.classList.add('active');
-                question.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-
     /* ── CONTACT FORM → WHATSAPP ──────── */
     const contactForm = document.getElementById('contactForm');
     const defaultWhatsappNumber = '5491158055802';
@@ -304,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('contactName').value.trim();
             const phone = document.getElementById('contactPhone').value.trim();
             const service = document.getElementById('contactService').value;
-            const urgency = document.getElementById('contactUrgency').value;
             const message = document.getElementById('contactMessage').value.trim();
 
             // Use personalized phone if set via ?t= param
@@ -315,7 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
             whatsappMessage += `👤 *Nombre:* ${name}\n`;
             whatsappMessage += `📞 *Teléfono:* ${phone}\n`;
             whatsappMessage += `🔧 *Servicio:* ${service}\n`;
-            whatsappMessage += `⏰ *Urgencia:* ${urgency}\n`;
 
             if (message) {
                 whatsappMessage += `💬 *Mensaje:* ${message}\n`;
