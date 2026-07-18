@@ -279,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const name = document.getElementById('contactName').value.trim();
             const phone = document.getElementById('contactPhone').value.trim();
-            const service = document.getElementById('contactService').value;
             const message = document.getElementById('contactMessage').value.trim();
 
             // Use personalized phone if set via ?t= param
@@ -289,7 +288,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let whatsappMessage = `Hola! Me comunico desde la página web.\n\n`;
             whatsappMessage += `👤 *Nombre:* ${name}\n`;
             whatsappMessage += `📞 *Teléfono:* ${phone}\n`;
-            whatsappMessage += `🔧 *Servicio:* ${service}\n`;
 
             if (message) {
                 whatsappMessage += `💬 *Mensaje:* ${message}\n`;
