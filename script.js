@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update displayed phone numbers (text content)
             const displayPhone = cleanPhone.replace(/(\d{4})(\d{4})/, '$1-$2');
             document.querySelectorAll('.emergency-bar__phone').forEach(el => {
-                el.textContent = `Llamar ahora: ${displayPhone}`;
+                el.textContent = `Llamar ahora: ${cleanPhone}`;
             });
             document.querySelectorAll('.contact__detail a[href^="tel:"], .footer__col a[href^="tel:"]').forEach(el => {
                 el.textContent = displayPhone;
