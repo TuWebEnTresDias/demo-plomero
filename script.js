@@ -16,6 +16,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
 
+  const whatsapp = document.querySelector('#whatsappCta');
+  const phoneFromQuery = new URLSearchParams(window.location.search).get('t');
+  const normalizePhone = (value) => {
+    if (!value) return null;
+    let digits = value.replace(/\D/g, '');
+    if (digits.startsWith('00')) digits = digits.slice(2);
+    if (digits.startsWith('0')) digits = `54${digits.slice(1)}`;
+    if (digits.startsWith('54') && digits.charAt(2) === '0') digits = `54${digits.slice(3)}`;
+    if (digits.length < 10 || digits.length > 15 || /^(\d)\1+$/.test(digits)) return null;
+    return digits;
+  };
+  const phone = normalizePhone(phoneFromQuery);
+  if (whatsapp && phone) {
+    const message = encodeURIComponent('Hola, necesito ayuda con una emergencia de plomería.');
+    whatsapp.href = `https://wa.me/${phone}?text=${message}`;
+    whatsapp.target = '_blank';
+    whatsapp.rel = 'noopener noreferrer';
+  } else if (whatsapp) {
+    whatsapp.textContent = 'Consultar emergencia ↗';
+    whatsapp.setAttribute('aria-label', 'Consultar cómo funciona el canal de emergencias');
+  }
+
   const params = new URLSearchParams(window.location.search);
   const brand = params.get('e') || params.get('n');
   if (brand) {
