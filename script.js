@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
 
-  const whatsapp = document.querySelector('#whatsappCta');
   const phoneFromQuery = new URLSearchParams(window.location.search).get('t');
   const normalizePhone = (value) => {
     if (!value) return null;
@@ -28,14 +27,57 @@ document.addEventListener('DOMContentLoaded', () => {
     return digits;
   };
   const phone = normalizePhone(phoneFromQuery);
-  if (whatsapp && phone) {
-    const message = encodeURIComponent('Hola, necesito ayuda con una emergencia de plomería.');
-    whatsapp.href = `https://wa.me/${phone}?text=${message}`;
-    whatsapp.target = '_blank';
-    whatsapp.rel = 'noopener noreferrer';
-  } else if (whatsapp) {
-    whatsapp.textContent = 'Consultar emergencia ↗';
-    whatsapp.setAttribute('aria-label', 'Consultar cómo funciona el canal de emergencias');
+  const mobileCtas = document.querySelectorAll('[data-mobile-whatsapp]');
+  const mobileStatus = document.querySelector('#mobileContactStatus');
+  const fixedCta = document.querySelector('#whatsappCta');
+  const mobileCard = document.querySelector('#mobileContactCard');
+  const message = encodeURIComponent('Hola, necesito ayuda con una emergencia de plomería.');
+  mobileCtas.forEach((link) => {
+    link.dataset.demoHref = link.getAttribute('href');
+    link.dataset.demoTarget = link.getAttribute('target') || '';
+  });
+  const syncMobileCtas = () => {
+    const isMobile = window.matchMedia('(max-width: 800px)').matches;
+    mobileCtas.forEach((link) => {
+      if (isMobile && phone) {
+        link.href = `https://wa.me/${phone}?text=${message}`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      } else {
+        link.href = link.dataset.demoHref;
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+    });
+    if (mobileStatus) {
+      mobileStatus.textContent = phone
+        ? 'El canal está listo para que describas la urgencia y recibas orientación del profesional.'
+        : 'Esta demo necesita el canal verificado del profesional para abrir WhatsApp. Mientras tanto, podés revisar cómo abordamos el trabajo.';
+    }
+  };
+  syncMobileCtas();
+  window.matchMedia('(max-width: 800px)').addEventListener('change', (event) => {
+    syncMobileCtas();
+    if (!event.matches) setFixedCtaVisibility(false);
+  });
+
+  const setFixedCtaVisibility = (hidden) => {
+    if (!fixedCta) return;
+    fixedCta.classList.toggle('is-obscured', hidden);
+    if (hidden) {
+      if (document.activeElement === fixedCta) fixedCta.blur();
+      fixedCta.setAttribute('aria-hidden', 'true');
+      fixedCta.tabIndex = -1;
+    } else {
+      fixedCta.removeAttribute('aria-hidden');
+      fixedCta.removeAttribute('tabindex');
+    }
+  };
+  if (mobileCard && fixedCta && 'IntersectionObserver' in window) {
+    const cardObserver = new IntersectionObserver(([entry]) => {
+      setFixedCtaVisibility(window.matchMedia('(max-width: 800px)').matches && entry.isIntersecting);
+    }, { threshold: 0.2 });
+    cardObserver.observe(mobileCard);
   }
 
   const params = new URLSearchParams(window.location.search);
