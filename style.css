@@ -6,3 +6,55 @@
 .mobile-contact-card{display:none}
 @media(max-width:800px){body{padding-bottom:calc(5.25rem + env(safe-area-inset-bottom));overflow-x:hidden}.contact-form{display:none}.mobile-contact-card{display:block;padding:1.5rem;background:var(--deep);color:var(--white);border:1px solid rgba(141,226,209,.35)}.mobile-contact-card h3{margin:.35rem 0 .65rem;font:clamp(1.7rem,7vw,2.4rem)/1.05 var(--serif)}.mobile-contact-card p:not(.eyebrow){color:#d9e8e4}.mobile-contact-card .button{width:100%;margin-top:.75rem}.mobile-whatsapp,.mobile-whatsapp-link,.nav-cta,.hero-actions [data-mobile-whatsapp]{background:#25D366!important;color:#062b16!important}.mobile-whatsapp:hover,.mobile-whatsapp-link:hover,.nav-cta:hover,.hero-actions [data-mobile-whatsapp]:hover{background:#1fba59!important;color:#041d0f!important}.mobile-whatsapp{bottom:max(1rem,env(safe-area-inset-bottom));right:1rem;min-height:3rem;align-items:center;justify-content:center;transition:opacity .2s ease,visibility .2s ease,transform .2s ease}.mobile-whatsapp.is-obscured{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(120%)}.hero h1{max-width:100%;overflow-wrap:break-word;word-break:normal}.hero-actions [data-mobile-whatsapp]{display:inline-flex;align-items:center;justify-content:center}.service-card [data-mobile-whatsapp]{display:inline-block;color:#087a38;font-weight:700}.service-card [data-mobile-whatsapp]:hover{color:#064f25}}
 @media(max-width:340px){.hero h1{font-size:clamp(2.9rem,14.2vw,4.2rem);letter-spacing:-.045em}.hero-content{padding-top:6.5rem}.mobile-whatsapp{right:.75rem;left:.75rem}.mobile-whatsapp-link{min-height:3rem}}
+
+/* Keep the process content shrinkable when the available column is narrow. */
+.process-list li{grid-template-columns:minmax(2.5rem,4rem) minmax(0,1fr);min-width:0}
+.process-list li>div{min-width:0}
+.process-list h3,.process-list p{max-width:100%;overflow-wrap:anywhere}
+
+@media(max-width:520px){
+  .process-list{grid-template-columns:1fr;gap:0;margin-top:2rem}
+  .process-list li{grid-template-columns:2.5rem minmax(0,1fr);gap:.75rem;padding:0 0 1.5rem}
+  .process-list li>span{width:2.5rem;height:2.5rem;display:grid;place-items:center}
+  .process-list li{position:relative}
+  .process-list li:not(:last-child)::after{content:"";position:absolute;left:1.25rem;top:2.5rem;bottom:0;width:1px;background:var(--aqua);pointer-events:none}
+}
+
+/* Express diagnosis: a compact conversion step that stays useful without JS. */
+.diagnosis{background:var(--paper)}
+.diagnosis-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.diagnosis-intro h2{max-width:12ch}
+.diagnosis-card{background:var(--white);border:1px solid var(--line);padding:clamp(1.25rem,3vw,2rem);box-shadow:0 14px 30px rgba(16,37,43,.08)}
+.diagnosis-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.diagnosis-option{min-height:4.2rem;padding:.85rem 1rem;border:1px solid var(--line);background:var(--white);color:var(--ink);font:700 .95rem/1.3 var(--sans);text-align:left;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.diagnosis-option:hover,.diagnosis-option[aria-pressed="true"]{border-color:var(--deep);background:var(--deep);color:var(--white)}
+.diagnosis-option[aria-pressed="true"]{transform:translateY(-2px);box-shadow:0 6px 14px rgba(16,37,43,.14)}
+.diagnosis-result{margin-top:1.25rem;padding:1.25rem;background:var(--deep);color:var(--white);border-left:4px solid var(--aqua)}
+.diagnosis-result h3{margin:.25rem 0 .5rem;font:clamp(1.35rem,3vw,1.8rem)/1.1 var(--serif)}
+.diagnosis-result p:not(.eyebrow):not(.diagnosis-status):not(.diagnosis-noscript){color:#d9e8e4}
+.diagnosis-result.is-ready{animation:diagnosis-reveal .35s ease both}
+.diagnosis-cta{display:inline-flex;margin-top:.75rem}
+.diagnosis-cta.is-disabled{opacity:.72}
+.diagnosis-status{min-height:1.55em;margin:.75rem 0 0;color:var(--aqua);font-size:.85rem}
+.diagnosis-noscript{margin:.75rem 0 0;color:#d9e8e4;font-size:.85rem}
+@keyframes diagnosis-reveal{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:800px){.diagnosis-grid{grid-template-columns:1fr;gap:2rem}.diagnosis-intro h2{max-width:16ch}}
+@media(max-width:520px){.diagnosis-card{padding:1rem}.diagnosis-options{grid-template-columns:1fr}.diagnosis-option{min-height:3.6rem}.diagnosis-cta{width:100%;justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){.diagnosis-result.is-ready{animation:none}.diagnosis-option[aria-pressed="true"]{transform:none}}
+
+/* Coverage examples remain visual and explicit about their illustrative status. */
+.coverage-panel{display:block}
+.coverage-heading{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,6vw,6rem);align-items:end;margin-bottom:2.5rem}
+.coverage-heading h2{max-width:14ch}
+.coverage-heading>p{margin:0;color:var(--muted)}
+.coverage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.coverage-card{position:relative;aspect-ratio:1;min-width:0;margin:0;overflow:hidden;background:var(--deep);isolation:isolate}
+.coverage-card::after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(180deg,transparent,rgba(8,24,29,.9));z-index:1;pointer-events:none}
+.coverage-card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease,filter .35s ease}
+.coverage-card figcaption{position:absolute;right:1rem;bottom:1rem;left:1rem;z-index:2;color:var(--white)}
+.coverage-card figcaption span{display:block;margin-bottom:.2rem;color:var(--aqua);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.coverage-card figcaption strong{display:block;font:clamp(1.25rem,2.2vw,1.8rem)/1 var(--serif)}
+.coverage-card:hover img,.coverage-card:focus-within img{transform:scale(1.04);filter:saturate(1.08)}
+@media(max-width:800px){.coverage-heading{grid-template-columns:1fr;gap:1.25rem;margin-bottom:2rem}.coverage-heading h2{max-width:18ch}.coverage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.coverage-grid{grid-template-columns:1fr}.coverage-card figcaption{right:1.25rem;bottom:1.25rem;left:1.25rem}}
+@media(prefers-reduced-motion:reduce){.coverage-card img{transition:none}.coverage-card:hover img,.coverage-card:focus-within img{transform:none}}
