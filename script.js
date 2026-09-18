@@ -95,20 +95,24 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('toggle', syncFaqState);
   });
 
-  const diagnosisOptions = document.querySelectorAll('.diagnosis-option');
+  const diagnosisOptions = [...document.querySelectorAll('.diagnosis-option')];
   const diagnosisResult = document.querySelector('#diagnosisResult');
   const diagnosisTitle = document.querySelector('#diagnosisResultTitle');
   const diagnosisText = document.querySelector('#diagnosisResultText');
   const diagnosisCta = document.querySelector('#diagnosisCta');
   const diagnosisStatus = document.querySelector('#diagnosisStatus');
   if (diagnosisOptions.length && diagnosisResult && diagnosisTitle && diagnosisText && diagnosisCta) {
-    if (!phone) diagnosisCta.removeAttribute('aria-disabled');
-    diagnosisOptions.forEach((option) => option.addEventListener('click', () => {
-      diagnosisOptions.forEach((item) => item.setAttribute('aria-pressed', String(item === option)));
+    const selectDiagnosis = (option, moveFocus = false) => {
+      diagnosisOptions.forEach((item) => {
+        const selected = item === option;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
       diagnosisResult.classList.remove('is-ready');
       window.requestAnimationFrame(() => diagnosisResult.classList.add('is-ready'));
       diagnosisTitle.textContent = option.dataset.issue;
       diagnosisText.textContent = option.dataset.response;
+      diagnosisResult.setAttribute('aria-labelledby', option.id);
       diagnosisCta.setAttribute('aria-disabled', 'false');
       diagnosisCta.classList.remove('is-disabled');
       if (phone) {
@@ -126,7 +130,21 @@ document.addEventListener('DOMContentLoaded', () => {
         diagnosisCta.removeAttribute('rel');
         if (diagnosisStatus) diagnosisStatus.textContent = 'Esta demo no tiene un canal de WhatsApp verificado; podés describir el caso en el contacto de abajo.';
       }
-    }));
+      if (moveFocus) option.focus();
+    };
+    diagnosisOptions.forEach((option, index) => {
+      option.addEventListener('click', () => selectDiagnosis(option));
+      option.addEventListener('keydown', (event) => {
+        let nextIndex = index;
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') nextIndex = (index + 1) % diagnosisOptions.length;
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') nextIndex = (index - 1 + diagnosisOptions.length) % diagnosisOptions.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = diagnosisOptions.length - 1;
+        if (nextIndex !== index) { event.preventDefault(); selectDiagnosis(diagnosisOptions[nextIndex], true); }
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectDiagnosis(option); }
+      });
+    });
+    selectDiagnosis(diagnosisOptions.find((option) => option.getAttribute('aria-selected') === 'true') || diagnosisOptions[0]);
   }
 
   const form = document.querySelector('#contactForm');
