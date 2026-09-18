@@ -27,11 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return digits;
   };
   const phone = normalizePhone(phoneFromQuery);
+  const baseMessage = 'Hola, necesito ayuda con una emergencia de plomería.';
   const mobileCtas = document.querySelectorAll('[data-mobile-whatsapp]');
   const mobileStatus = document.querySelector('#mobileContactStatus');
   const fixedCta = document.querySelector('#whatsappCta');
   const mobileCard = document.querySelector('#mobileContactCard');
-  const message = encodeURIComponent('Hola, necesito ayuda con una emergencia de plomería.');
+  const message = encodeURIComponent(baseMessage);
   mobileCtas.forEach((link) => {
     link.dataset.demoHref = link.getAttribute('href');
     link.dataset.demoTarget = link.getAttribute('target') || '';
@@ -93,6 +94,40 @@ document.addEventListener('DOMContentLoaded', () => {
     syncFaqState();
     item.addEventListener('toggle', syncFaqState);
   });
+
+  const diagnosisOptions = document.querySelectorAll('.diagnosis-option');
+  const diagnosisResult = document.querySelector('#diagnosisResult');
+  const diagnosisTitle = document.querySelector('#diagnosisResultTitle');
+  const diagnosisText = document.querySelector('#diagnosisResultText');
+  const diagnosisCta = document.querySelector('#diagnosisCta');
+  const diagnosisStatus = document.querySelector('#diagnosisStatus');
+  if (diagnosisOptions.length && diagnosisResult && diagnosisTitle && diagnosisText && diagnosisCta) {
+    if (!phone) diagnosisCta.removeAttribute('aria-disabled');
+    diagnosisOptions.forEach((option) => option.addEventListener('click', () => {
+      diagnosisOptions.forEach((item) => item.setAttribute('aria-pressed', String(item === option)));
+      diagnosisResult.classList.remove('is-ready');
+      window.requestAnimationFrame(() => diagnosisResult.classList.add('is-ready'));
+      diagnosisTitle.textContent = option.dataset.issue;
+      diagnosisText.textContent = option.dataset.response;
+      diagnosisCta.setAttribute('aria-disabled', 'false');
+      diagnosisCta.classList.remove('is-disabled');
+      if (phone) {
+        diagnosisCta.childNodes[0].nodeValue = 'Preparar mensaje por WhatsApp ';
+        const diagnosisMessage = encodeURIComponent(`${baseMessage} El motivo de mi consulta es: ${option.dataset.issue}.`);
+        diagnosisCta.href = `https://wa.me/${phone}?text=${diagnosisMessage}`;
+        diagnosisCta.target = '_blank';
+        diagnosisCta.rel = 'noopener noreferrer';
+        if (diagnosisStatus) diagnosisStatus.textContent = 'El mensaje está listo para abrir WhatsApp.';
+      } else {
+        diagnosisCta.childNodes[0].nodeValue = 'Describir el problema en contacto ';
+        diagnosisCta.removeAttribute('aria-disabled');
+        diagnosisCta.href = '#contacto';
+        diagnosisCta.removeAttribute('target');
+        diagnosisCta.removeAttribute('rel');
+        if (diagnosisStatus) diagnosisStatus.textContent = 'Esta demo no tiene un canal de WhatsApp verificado; podés describir el caso en el contacto de abajo.';
+      }
+    }));
+  }
 
   const form = document.querySelector('#contactForm');
   const status = document.querySelector('#formStatus');
