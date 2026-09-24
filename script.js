@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
 
-  const phoneFromQuery = new URLSearchParams(window.location.search).get('t');
+  const phoneFromQuery = new URLSearchParams(window.location.search).get('t') || '5491167967633';
   const normalizePhone = (value) => {
     if (!value) return null;
     let digits = value.replace(/\D/g, '');
