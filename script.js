@@ -30,9 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const baseMessage = 'Hola, necesito ayuda con una emergencia de plomería.';
   const mobileCtas = document.querySelectorAll('[data-mobile-whatsapp]');
   const mobileStatus = document.querySelector('#mobileContactStatus');
-  const fixedCta = document.querySelector('#whatsappCta');
+  const fixedCall = document.querySelector('[data-phone-display]');
+  const fixedBar = document.querySelector('#mobileSticky');
   const mobileCard = document.querySelector('#mobileContactCard');
   const message = encodeURIComponent(baseMessage);
+  if (fixedCall) {
+    if (phone) {
+      fixedCall.href = `tel:${phone}`;
+      fixedCall.textContent = phone.startsWith('549') && phone.length === 13
+        ? `+54 9 ${phone.slice(3, 5)} ${phone.slice(5, 9)}-${phone.slice(9)}`
+        : `+${phone}`;
+    } else {
+      fixedCall.hidden = true;
+      fixedCall.setAttribute('aria-hidden', 'true');
+      fixedCall.removeAttribute('href');
+      fixedBar?.classList.add('has-no-call');
+    }
+  }
   mobileCtas.forEach((link) => {
     link.dataset.demoHref = link.getAttribute('href');
     link.dataset.demoTarget = link.getAttribute('target') || '';
@@ -59,24 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
   syncMobileCtas();
   window.matchMedia('(max-width: 800px)').addEventListener('change', (event) => {
     syncMobileCtas();
-    if (!event.matches) setFixedCtaVisibility(false);
-  });
-
-  const setFixedCtaVisibility = (hidden) => {
-    if (!fixedCta) return;
-    fixedCta.classList.toggle('is-obscured', hidden);
-    if (hidden) {
-      if (document.activeElement === fixedCta) fixedCta.blur();
-      fixedCta.setAttribute('aria-hidden', 'true');
-      fixedCta.tabIndex = -1;
-    } else {
-      fixedCta.removeAttribute('aria-hidden');
-      fixedCta.removeAttribute('tabindex');
+    if (!event.matches && fixedBar) {
+      fixedBar.classList.remove('is-obscured');
+      fixedBar.removeAttribute('aria-hidden');
+      fixedBar.querySelectorAll('a').forEach((link) => {
+        if (!link.hidden) link.removeAttribute('tabindex');
+      });
     }
-  };
-  if (mobileCard && fixedCta && 'IntersectionObserver' in window) {
+  });
+  if (mobileCard && fixedBar && 'IntersectionObserver' in window) {
     const cardObserver = new IntersectionObserver(([entry]) => {
-      setFixedCtaVisibility(window.matchMedia('(max-width: 800px)').matches && entry.isIntersecting);
+      const obscured = window.matchMedia('(max-width: 800px)').matches && entry.isIntersecting;
+      fixedBar.classList.toggle('is-obscured', obscured);
+      fixedBar.setAttribute('aria-hidden', String(obscured));
+      fixedBar.querySelectorAll('a').forEach((link) => {
+        if (obscured) {
+          if (document.activeElement === link) link.blur();
+          link.tabIndex = -1;
+        } else if (!link.hidden) {
+          link.removeAttribute('tabindex');
+        }
+      });
     }, { threshold: 0.2 });
     cardObserver.observe(mobileCard);
   }
@@ -99,6 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const diagnosisResult = document.querySelector('#diagnosisResult');
   const diagnosisTitle = document.querySelector('#diagnosisResultTitle');
   const diagnosisText = document.querySelector('#diagnosisResultText');
+  const diagnosisPhotos = [...document.querySelectorAll('.diagnosis-photo')];
+  diagnosisPhotos.forEach((photo) => {
+    photo.addEventListener('error', () => {
+      const fallback = photo.dataset.fallback;
+      if (fallback && photo.dataset.fallbackTried !== 'true') {
+        photo.dataset.fallbackTried = 'true';
+        photo.src = fallback;
+        if (photo.dataset.fallbackAlt) photo.alt = photo.dataset.fallbackAlt;
+      } else {
+        photo.dataset.unavailable = 'true';
+        photo.hidden = true;
+      }
+    });
+  });
   const diagnosisCta = document.querySelector('#diagnosisCta');
   const diagnosisStatus = document.querySelector('#diagnosisStatus');
   if (diagnosisOptions.length && diagnosisResult && diagnosisTitle && diagnosisText && diagnosisCta) {
@@ -112,6 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
       window.requestAnimationFrame(() => diagnosisResult.classList.add('is-ready'));
       diagnosisTitle.textContent = option.dataset.issue;
       diagnosisText.textContent = option.dataset.response;
+      diagnosisPhotos.forEach((photo) => {
+        photo.hidden = photo.dataset.photoFor !== option.id || photo.dataset.unavailable === 'true';
+      });
       diagnosisResult.setAttribute('aria-labelledby', option.id);
       diagnosisCta.setAttribute('aria-disabled', 'false');
       diagnosisCta.classList.remove('is-disabled');
@@ -136,11 +170,16 @@ document.addEventListener('DOMContentLoaded', () => {
       option.addEventListener('click', () => selectDiagnosis(option));
       option.addEventListener('keydown', (event) => {
         let nextIndex = index;
-        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') nextIndex = (index + 1) % diagnosisOptions.length;
-        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') nextIndex = (index - 1 + diagnosisOptions.length) % diagnosisOptions.length;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % diagnosisOptions.length;
+        if (event.key === 'ArrowLeft') nextIndex = (index - 1 + diagnosisOptions.length) % diagnosisOptions.length;
         if (event.key === 'Home') nextIndex = 0;
         if (event.key === 'End') nextIndex = diagnosisOptions.length - 1;
-        if (nextIndex !== index) { event.preventDefault(); selectDiagnosis(diagnosisOptions[nextIndex], true); }
+        if (nextIndex !== index) {
+          event.preventDefault();
+          const nextOption = diagnosisOptions[nextIndex];
+          selectDiagnosis(nextOption, true);
+          nextOption.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest', inline: 'nearest' });
+        }
         if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectDiagnosis(option); }
       });
     });
