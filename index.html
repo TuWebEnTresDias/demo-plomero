@@ -1,7 +1,11 @@
 <!doctype html>
-<html lang="es-AR">
+<html data-personalized-demo lang="es-AR">
 
 <head>
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; form-action 'none'">
+<script src="site-security.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Emergencias de plomería 24/7 | Demo</title>
@@ -305,7 +309,7 @@
             name="name" type="text" autocomplete="name" required placeholder="Tu nombre"><label
             for="contactMessage">¿Qué necesitás resolver?</label><textarea id="contactMessage" name="message" rows="4"
             required placeholder="Por ejemplo: el desagüe de la cocina baja lento..."></textarea><button
-            class="button button-primary" type="submit">Preparar consulta <span aria-hidden="true">↗</span></button>
+            class="button button-primary" type="submit" disabled data-security-submit>Preparar consulta <span aria-hidden="true">↗</span></button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
         <div class="mobile-contact-card" id="mobileContactCard">
@@ -339,7 +343,7 @@
     <a class="mobile-sticky-whatsapp" id="whatsappCta" data-mobile-whatsapp href="#contacto"
       aria-label="Abrir WhatsApp para una consulta de plomería">WhatsApp</a>
   </div>
-  <script src="./script.js"></script>
+  <script data-site-script src="./script.js"></script>
 </body>
 
 </html>

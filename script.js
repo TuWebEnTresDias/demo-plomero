@@ -16,17 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
 
-  const phoneFromQuery = new URLSearchParams(window.location.search).get('t') || '5491167967633';
-  const normalizePhone = (value) => {
-    if (!value) return null;
-    let digits = value.replace(/\D/g, '');
-    if (digits.startsWith('00')) digits = digits.slice(2);
-    if (digits.startsWith('0')) digits = `54${digits.slice(1)}`;
-    if (digits.startsWith('54') && digits.charAt(2) === '0') digits = `54${digits.slice(3)}`;
-    if (digits.length < 10 || digits.length > 15 || /^(\d)\1+$/.test(digits)) return null;
-    return digits;
-  };
-  const phone = normalizePhone(phoneFromQuery);
+  const phoneFromQuery = new URLSearchParams(window.__DEMO_PARAMS__ ?? window.location.search).get('t') ?? '5491167967633';
+  const phone = window.SiteSecurity.normalizePhone(phoneFromQuery)?.whatsapp || null;
   const baseMessage = 'Hola, necesito ayuda con una emergencia de plomería.';
   const mobileCtas = document.querySelectorAll('[data-mobile-whatsapp]');
   const mobileStatus = document.querySelector('#mobileContactStatus');
@@ -98,8 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cardObserver.observe(mobileCard);
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const brand = params.get('e') || params.get('n');
+  const params = new URLSearchParams(window.__DEMO_PARAMS__ ?? window.location.search);
+  const brand = params.get('e')?.trim().slice(0, 80) || params.get('n')?.trim().slice(0, 80);
   if (brand) {
     document.querySelectorAll('[data-dynamic]').forEach((element) => { element.textContent = brand; });
     document.title = `${brand} | Demo de plomería`;
